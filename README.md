@@ -1,8 +1,11 @@
 # proxyserv
 Proxy + server demo
 
-#http.server and many libraries : \
-- 
+# Many libraries and modules : \
+- SimpleHTTPRequestHandler 
+- socketserver
+- TCPServer
+- http.server
 
 # Some tricks to understand how it work : \
 - To launch server with a listner port : \
