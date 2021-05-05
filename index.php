@@ -39,17 +39,25 @@
                 ?>
             </div>
                 <tr>
-                    <td></td>
-                      <form method="POST" action="index.php" enctype="multipart/form-data">
+                    <form method="POST" action="index.php" enctype="multipart/form-data">
                         <div class="upload-wrapper">
-                          <span class="file-name">Choose a file...</span>
-                          <label for="file-upload">Browse<input type="file" id="file-upload" name="uploadedFile"></label>
+                            <span class="file-name">Choose a file...</span>
+                            <label for="file-upload">Browse<input type="file" id="file-upload" name="uploadedFile"></label>
                         </div>
-                     
-                        <input type="submit" name="uploadBtn" value="Upload" />
-                      </form>
-                    </td>
+                        <!--a href=":8000">Dowload File</a-->
+                    </form>
+                    <form METHOD="POST" TARGET="_BLANK">
+                        <button TYPE="submit" VALUE="1" name="pressed">Click</button>
+                    </form>
+                    <?php
+                    if($_POST['pressed'] == 1 )
+                    {
+                        header('Location: http://127.0.0.1:8000/');
+                        shell_exec('');
+                    }
+                    ?>
+                    <!--input type="submit" class="button", name=butt, value="Upload!"-->
                 </tr>
-        <h3>Put : "localhost:8000" (to fill url space on top of youre browser !)</h3>
+        <h3>You can also use url addess bar to put : "localhost:8000"</h3>
     </body>
 </html>
