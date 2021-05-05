@@ -27,7 +27,6 @@
                     }
                     return $ip;
                 }
-
                 $ip = get_ip();
                 echo '<p>Your publique ip : ' . $ip . '</p>';
                 $date = date("d-m-Y");
@@ -39,9 +38,18 @@
                 fclose($fp);
                 ?>
             </div>
-            <div>
-                <p>Press to upload</p>
-            </div>>
+                <tr>
+                    <td></td>
+                      <form method="POST" action="index.php" enctype="multipart/form-data">
+                        <div class="upload-wrapper">
+                          <span class="file-name">Choose a file...</span>
+                          <label for="file-upload">Browse<input type="file" id="file-upload" name="uploadedFile"></label>
+                        </div>
+                     
+                        <input type="submit" name="uploadBtn" value="Upload" />
+                      </form>
+                    </td>
+                </tr>
         <h3>Put : "localhost:8000" (to fill url space on top of youre browser !)</h3>
     </body>
 </html>
