@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,7 +11,11 @@
     </head>
 
     <body>
-        <h3>ip_address_id:</h3>
+        <h1>SimpleHTTPServer and php server :</h1>
+        <h2>- 2 server with 2 differents ports -</h2>
+        <h3>server 1 : sudo php -S 127.0.0.1:80</h3>
+        <h3>server 2 : python3 server.py 8000</h3>
+        <h4>Results from server 1 :</h4>
             <div class="content">
                 <?php
                 // Récupération d'adresse IP
@@ -38,26 +46,38 @@
                 fclose($fp);
                 ?>
             </div>
-                <tr>
-                    <form method="POST" action="index.php" enctype="multipart/form-data">
-                        <div class="upload-wrapper">
-                            <span class="file-name">Choose a file...</span>
-                            <label for="file-upload">Browse<input type="file" id="file-upload" name="uploadedFile"></label>
-                        </div>
-                        <!--a href=":8000">Dowload File</a-->
-                    </form>
-                    <form METHOD="POST" TARGET="_BLANK">
-                        <button TYPE="submit" VALUE="1" name="pressed">Click</button>
-                    </form>
-                    <?php
+            <tr>
+                <form method="POST" action="" enctype="multipart/form-data">
+                    <div class="upload-wrapper">
+                        <span class="file-name">Choose a file</span>
+                        <label for="file-upload">from server 1 : <input type="file" id="file-upload" name="uploadedFile"></label>
+                    </div>
+                    <!--a href=":8000">Dowload File</a-->
+                </form>
+                <br><br/>
+                <form method="POST" target="_blank">
+                    <a>To download from server 2 : </a>
+                    <button type="submit" value="1" name="pressed">Download</button>
+                </form>
+                <?php
+                try
+                {
                     if($_POST['pressed'] == 1 )
                     {
+                        echo "New redirection error http 302";
                         header('Location: http://127.0.0.1:8000/');
-                        shell_exec('');
+                        #$output = shell_exec('pwd');
+                        #echo "<pre>$output</pre>";
                     }
-                    ?>
-                    <!--input type="submit" class="button", name=butt, value="Upload!"-->
-                </tr>
-        <h3>You can also use url addess bar to put : "localhost:8000"</h3>
+                }
+                catch (Exception $e)
+                {
+                    echo "Some trouble !!!";
+                }
+                ?>
+                <!--input type="submit" class="button", name=butt, value="Upload!"-->
+            </tr>
+        <br><br/>
+        <a>You can also reach server 2 by entering : "localhost:8000" in url address !</a>
     </body>
 </html>
