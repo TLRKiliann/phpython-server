@@ -80,19 +80,20 @@ session_start();
                 echo "</pre>";
                 ?>
                 <?php
-                exec('ls-l', $output, $status);
-                echo “<br/>”;
-                echo $value.“<br />”;
+                echo shell_exec('ls -larth');
                 ?>
+                <br><br/>
+                <br><br/>
                 <!-- shell_exec -->
                 <?php
                 $cmd = "ls -larth";
-                echo "<pre>".shell_exec($cmd)."</pre>";
+                echo "<pre>" . shell_exec($cmd) . "</pre>";
                 echo shell_exec('ifconfig -a');
                 ?>
                 <br><br/>
+                <br><br/>
                 <?php
-                echo shell_exec("cat /var/log/syslog | grep -i 'warning'");
+                echo exec("cat /var/log/syslog | grep -i 'error'");
                 ?>
                 <br><br/>
                 <?php
