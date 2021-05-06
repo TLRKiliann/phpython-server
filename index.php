@@ -47,7 +47,7 @@ session_start();
                 ?>
             </div>
             <tr>
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="index.php" enctype="multipart/form-data">
                     <div class="upload-wrapper">
                         <span class="file-name">Choose a file</span>
                         <label for="file-upload">from server 1 : <input type="file" id="file-upload" name="uploadedFile"></label>
@@ -60,22 +60,55 @@ session_start();
                     <button type="submit" value="1" name="pressed">Download</button>
                 </form>
                 <?php
-                try
+                if($_POST['pressed'] == 1 )
                 {
-                    if($_POST['pressed'] == 1 )
-                    {
-                        echo "New redirection error http 302";
-                        header('Location: http://127.0.0.1:8000/');
-                        #$output = shell_exec('pwd');
-                        #echo "<pre>$output</pre>";
-                    }
+                    echo "New redirection error http 302";
+                    header('Location: http://127.0.0.1:8000/');
+                    #$output = shell_exec('pwd');
+                    #echo "<pre>$output</pre>";
                 }
-                catch (Exception $e)
-                {
-                    echo "Some trouble !!!";
-                }
+                //catch (Exception $e)
+                //{
+                  //  echo "Some trouble !!!";
+                //}
                 ?>
-                <!--input type="submit" class="button", name=butt, value="Upload!"-->
+                <!--  -->
+                <?php
+                $command = "ls -l";
+                echo "<pre>";
+                echo shell_exec($command);
+                echo "</pre>";
+                ?>
+                <?php
+                exec('ls-l', $output, $status);
+                echo “<br/>”;
+                echo $value.“<br />”;
+                ?>
+                <!-- shell_exec -->
+                <?php
+                $cmd = "ls -larth";
+                echo "<pre>".shell_exec($cmd)."</pre>";
+                echo shell_exec('ifconfig -a');
+                ?>
+                <br><br/>
+                <?php
+                echo shell_exec("cat /var/log/syslog | grep -i 'warning'");
+                ?>
+                <br><br/>
+                <?php
+                echo shell_exec("route -n");
+                ?>
+                <!-- Command -->
+                <br><br/>
+                <?php
+                echo getcwd();
+                echo "<br>Youpi !!!<br/>";
+                ?>
+                <!-- Actual link adress -->
+                <?php
+                $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                echo "<br>Actual link : <pre> $actual_link </pre><br/>";
+                ?>
             </tr>
         <br><br/>
         <a>You can also reach server 2 by entering : "localhost:8000" in url address !</a>
