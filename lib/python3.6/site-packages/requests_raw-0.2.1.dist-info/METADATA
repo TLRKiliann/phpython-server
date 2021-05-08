@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: requests-raw
+Version: 0.2.1
+Summary: Use requests to talk HTTP via a Raw sockets (To Test RFC Compliance)
+Home-page: https://github.com/realgam3/requests-raw
+Author: Tomer Zait (realgam3)
+Author-email: realgam3@gmail.com
+License: Apache 2.0
+Project-URL: Source, https://github.com/realgam3/requests-raw
+Platform: any
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=2.7.*, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*
+Description-Content-Type: text/markdown
+Requires-Dist: requests (>=2.23.0)
+Provides-Extra: security
+Requires-Dist: pyOpenSSL (>=0.14) ; extra == 'security'
+Requires-Dist: cryptography (>=1.3.4) ; extra == 'security'
+Provides-Extra: socks
+Requires-Dist: PySocks (!=1.5.7,>=1.5.6) ; extra == 'socks'
+Requires-Dist: win-inet-pton ; (sys_platform == "win32" and python_version == "2.7") and extra == 'socks'
+
+# requests-raw
+[![PyPI version](https://img.shields.io/pypi/v/requests-raw)](https://pypi.org/project/requests-raw/)
+[![Downloads](https://pepy.tech/badge/requests-raw)](https://pepy.tech/project/requests-raw)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/requests-raw)  
+
+Use [requests](https://requests.readthedocs.io/) to send HTTP raw sockets (To Test RFC Compliance)
+
+## Usage
+### Explicit
+```python
+import json
+import requests_raw
+
+res = requests_raw.raw(url='http://httpbin.org/', data=b"GET /get HTTP/1.1\r\nHost: httpbin.org\r\n\r\n")
+res_json = res.json()
+print(json.dumps(res_json, indent=2))
+```
+
+### Implicit (monkey patch)
+```python
+import json
+import requests
+import requests_raw
+requests_raw.monkey_patch_all()
+
+session = requests.Session()
+res = session.raw(url='https://httpbin.org/', data=b"GET /cookies/set/name/value HTTP/1.1\r\nHost: httpbin.org\r\n\r\n")
+res_json = res.json()
+print(json.dumps(res_json, indent=2))
+```
+
+## Installation
+### Prerequisites
+* Python 2.7
+* Python 3.5+
+
+```sh
+pip3 install requests-raw
+```
+
+
