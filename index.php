@@ -60,6 +60,8 @@ session_start();
                     <button type="submit" value="1" name="pressed">Download</button>
                 </form>
                 <?php
+                //try
+                //{
                 if($_POST['pressed'] == 1 )
                 {
                     echo "New redirection error http 302";
@@ -67,6 +69,7 @@ session_start();
                     #$output = shell_exec('pwd');
                     #echo "<pre>$output</pre>";
                 }
+                //}
                 //catch (Exception $e)
                 //{
                   //  echo "Some trouble !!!";
@@ -91,6 +94,9 @@ session_start();
                 echo shell_exec('ifconfig -a');
                 ?>
                 <br><br/>
+                <?php
+                echo exec("ping -c 3 localhost");
+                ?>
                 <br><br/>
                 <?php
                 echo exec("cat /var/log/syslog | grep -i 'error'");

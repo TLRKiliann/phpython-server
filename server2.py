@@ -14,15 +14,15 @@ port = 8080
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         payload = {'key1': 'value1', 'key2': 'value2'}
-        url = 'https://github.com'
-        rg = requests.get('https://github.com', data=payload)
-        print(rg.status_code)
+        url = 'https://collonges.gammadia-dsi.net/_/login'
+        rg = requests.get('https://collonges.gammadia-dsi.net/_/login', data=payload)
+        print("Status :", rg.status_code)
         print(rg.raw)
 
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
-        self.wfile.write(bytes("<html><head><title>https://my_server2_to_test.org</title></head>", "utf-8"))
+        #self.wfile.write(bytes("<html><head><title>https://my_server2_to_test.org</title></head>", "utf-8"))
         self.wfile.write(bytes("<p>Request: %s </p>" % self.path, "utf-8"))
         self.wfile.write(bytes("<body>", "utf-8"))
         self.wfile.write(bytes("<p>This is web server 2.</p>", "utf-8"))
@@ -35,7 +35,6 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("<br> ---Text data : ", "utf-8"))
         self.wfile.write(bytes(rg.text, "utf-8"))
         self.wfile.write(bytes(rg.content))
-        #self.wfile.write(bytes(rg.json()))
         self.wfile.write(bytes("<br> ---Raw : <br>", "utf-8"))
         self.wfile.write(bytes(rg.raw))
         self.wfile.write(bytes("<br> ---GET finished--- <br>", "utf-8"))

@@ -5,8 +5,8 @@ import socket
 
 s = socket.socket()
 
-ip = input("Plz enter IP addr (target): ")
-port = str(input("Plz enter the port of target: "))
+ip = input("Enter IP addr (target): ")
+port = str(input("Enter PORT of target: "))
 
 s.connect((ip, int(port)))
 
