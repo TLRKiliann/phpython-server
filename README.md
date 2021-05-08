@@ -1,4 +1,4 @@
-# proxyserv
+# PROX-SERVER
 Server demo to identificate some elements of http headers
 and some files whose working as server with a proxy.
 
@@ -11,11 +11,11 @@ and some files whose working as server with a proxy.
 # Some tricks to understand how it work :
 - To launch server with a listner port :
 > python -m http.server 8000 \
-Enter localhost:8000 into browser
+Enter "127.0.0.1:8000" into browser
 
 - To download file start cmd :
 > sudo php -S  127.0.0.1:80 (-t .) \
-Enter 127.0.0.1:80 into browser
+Enter "127.0.0.1:80" into browser
 
 Case 1 :
 - Launch : 
@@ -37,7 +37,7 @@ Case 3 :
 > php -S 127.0.0.1:8000 dispy_data.php
 
 Case 4:
-- To run php as server :
+- To run php as server WEB :
 > php -S 0.0.0.0:8000 dispy_data.php
 - or (if you've created a public directory)
 > php -S 0.0.0.0:8000 -t public dispy_data.php
