@@ -13,12 +13,13 @@ and some files whose working as server with a proxy.
 > python -m http.server 8000
 Enter localhost:8000 into browser
 
-- To download file start cmd :
+- To download file start cmd :\
 > sudo php -S  127.0.0.1:80 (-t .)
 Enter 127.0.0.1:80 into browser
 
 Case 1 :
-Launch : sudo php -S 127.0.0.1:8080 index.php
+Launch : 
+> sudo php -S 127.0.0.1:8080 index.php
 This file call index.php and index.css
 You can read it with your browser.
 Now, launch : python3 proxy_analyze.py and see
