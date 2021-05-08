@@ -25,11 +25,16 @@ Now, launch : python3 proxy_analyze.py and see
 that index could be read by server2.
 
 Case 2 :
-- Launch : sudo php -S 127.0.0.1:8080
+- Launch : sudo php -S 127.0.0.1:8080 :
 and launch : python3 proxy_analyze.py
 
 Case 3 :
-- To run proxy by starding with dispy_data.php
+- To run proxy by starding with dispy_data.php :
 php -S 127.0.0.1:8000 dispy_data.php
 
+Case 4:
+- To run php as server :
+php -S 0.0.0.0:8000 dispy_data.php
+or (if you've created a public directory)
+php -S 0.0.0.0:8000 -t public dispy_data.php
 Under work and devlopement...
