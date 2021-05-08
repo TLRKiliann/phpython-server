@@ -9,13 +9,13 @@ import requests
 import time
 
 host = "localhost"
-port = 8080
+port = 8000
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         payload = {'key1': 'value1', 'key2': 'value2'}
-        url = 'https://collonges.gammadia-dsi.net/_/login'
-        rg = requests.get('https://collonges.gammadia-dsi.net/_/login', data=payload)
+        url = 'http://127.0.0.1:8080'
+        rg = requests.get('http://127.0.0.1:8080', data=payload)
         print("Status :", rg.status_code)
         print(rg.raw)
 

@@ -76,37 +76,46 @@ session_start();
                 //}
                 ?>
                 <!--  -->
+                <h4>ls -l :</h4>
                 <?php
                 $command = "ls -l";
                 echo "<pre>";
                 echo shell_exec($command);
                 echo "</pre>";
                 ?>
+                <h4>ls -larth :</h4>
                 <?php
                 echo shell_exec('ls -larth');
                 ?>
                 <br><br/>
-                <br><br/>
+                <h4>ls -larth :</h4>
                 <!-- shell_exec -->
                 <?php
                 $cmd = "ls -larth";
                 echo "<pre>" . shell_exec($cmd) . "</pre>";
+                ?>
+                <h4>ls -larth :</h4>
+                <?php
                 echo shell_exec('ifconfig -a');
                 ?>
                 <br><br/>
+                <h4>ping -c 3 localhost</h4>
                 <?php
-                echo exec("ping -c 3 localhost");
+                echo shell_exec("ping -c 3 localhost");
                 ?>
                 <br><br/>
+                <h4>cat /var/log/syslog | grep -i 'error' :</h4>
                 <?php
-                echo exec("cat /var/log/syslog | grep -i 'error'");
+                echo shell_exec("cat /var/log/syslog | grep -i 'error'");
                 ?>
                 <br><br/>
+                <h4>route -n :</h4>
                 <?php
                 echo shell_exec("route -n");
                 ?>
                 <!-- Command -->
                 <br><br/>
+                <h4>getcwd() :</h4>
                 <?php
                 echo getcwd();
                 echo "<br>Youpi !!!<br/>";
@@ -114,7 +123,11 @@ session_start();
                 <!-- Actual link adress -->
                 <?php
                 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-                echo "<br>Actual link : <pre> $actual_link </pre><br/>";
+                echo "<br><h4>Actual link : </h4><pre> $actual_link </pre><br/>";
+                ?>
+                <?php
+                $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                echo "<br><h4>Actual link : </h4><pre> $actual_link </pre><br/>";
                 ?>
             </tr>
         <br><br/>
