@@ -10,11 +10,11 @@ and some files whose working as server with a proxy.
 
 # Some tricks to understand how it work :
 - To launch server with a listner port :
-> python -m http.server 8000
+> python -m http.server 8000 /
 Enter localhost:8000 into browser
 
 - To download file start cmd :
-> sudo php -S  127.0.0.1:80 (-t .)
+> sudo php -S  127.0.0.1:80 (-t .) \
 Enter 127.0.0.1:80 into browser
 
 Case 1 :
