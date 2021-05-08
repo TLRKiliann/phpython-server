@@ -18,17 +18,18 @@ Enter localhost:8000 into browser
 Enter 127.0.0.1:80 into browser
 
 Case 1 :
-Launch : 
+- Launch : 
 > sudo php -S 127.0.0.1:8080 index.php \
-This file call index.php and index.css 
+This file call index.php and index.css \
 You can read it with your browser.
-Now, launch : python3 proxy_analyze.py and see
-that index could be read by server2.
+- Now, launch : 
+> python3 proxy_analyze.py \
+and see that index could be read by proxy_analyze.
 
 Case 2 :
 - Launch : 
 > sudo php -S 127.0.0.1:8080 \
-and launch : 
+- and launch : 
 > python3 proxy_analyze.py
 
 Case 3 :
