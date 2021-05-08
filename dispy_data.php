@@ -1,6 +1,6 @@
-<?php
-session_start();
-?>
+#!/usr/bin/php
+
+<?php session_start(); ?>
 
 
 <!DOCTYPE html>
