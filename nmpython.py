@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+# Launch prog with python3 nmpython.py
 
 import socket
 import subprocess

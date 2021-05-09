@@ -1,5 +1,5 @@
-<!-- php -S 127.0.0.1:8000 php_httphead.php -->
 <?php
+// php -S 127.0.0.1:8000 php_httphead.php
 session_start();
 ?>
 

@@ -1,4 +1,5 @@
 <?php
+// php -S 127.0.0.1:8000 dispy_data.php
 session_start();
 ?>
 
@@ -21,17 +22,20 @@ session_start();
         <hr />Return value: ' . $retval;
         ?>
         <br><br/>
+
         <h2>ls -larth : (shell_exec)</h2>
         <?php
         echo shell_exec('ls -larth');
         ?>
         <br><br/>
+
         <h2>ls -larth : (exec)</h2>
         <?php
         exec('ls -larth', $outdata);
         print_r($outdata);
         ?>
         <br></br>
+
         <h2>netstat -tulpn : (system)</h2>
         <?php
         echo '<pre>';
@@ -42,6 +46,7 @@ session_start();
         <hr />Return value: ' . $retval;
         ?>
         <br><br/>
+
         <h2>netstat -tulpn : (exec)</h2>
         <?php
         $output=null;
@@ -51,6 +56,7 @@ session_start();
         print_r($output);
         ?>
         <br><br/>
+
         <h2>uname -a : (exec + shell_exec)</h2>
         <?php
         //Execude command in the shell with PHP exec() function
