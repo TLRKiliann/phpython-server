@@ -9,14 +9,15 @@ import requests
 import requests_raw
 import time
 
+
 host = "localhost"
 port = 8000
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         #payload = {'key1': 'value1', 'key2': 'value2'}
-        url = 'https://www.myip.com/'
-        rg = requests.get('https://www.myip.com/')
+        url = "https://meteonews.ch/fr/" #'https://www.myip.com/'
+        rg = requests.get("https://meteonews.ch/fr/") #'https://www.myip.com/')
         #rg = requests.get('https://www.myip.com/', data=payload)
         print("Status :", rg.status_code)
         print("\n")
@@ -28,11 +29,13 @@ class MyServer(BaseHTTPRequestHandler):
         print("\n")
         rg.content
         print(type(rg.content))
-        print(rg.content[0:400])
+        #print(rg.content)
+        print(rg.content[0:200])
         print("\n")
         rg.text
         print(type(rg.text))
-        print(rg.text[0:400])
+        #print(rg.text)
+        print(rg.text[0:200])
         print("\n")
         data = {'title':'Pyton Requests','body':'Requests are qwesome','userId':1} 
         rp = requests.post('https://www.myip.com/posts', data, stream = True)
@@ -53,7 +56,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("<p> --- GET + Headers-Content-Type : </p>", "utf-8"))
         self.wfile.write(bytes(rg.headers['content-type'], "utf-8"))
         self.wfile.write(bytes("<p> --- Encoding : </p>", "utf-8"))
-        self.wfile.write(bytes(rg.encoding, "utf-8"))
+        self.wfile.write(bytes(rg.encoding, "utf-8","img/png"))
         self.wfile.write(bytes("<p> --- Text data : </p>", "utf-8"))
         self.wfile.write(bytes(rg.text, "utf-8"))
         self.wfile.write(bytes("<p> --- Content : </p>", "utf-8"))

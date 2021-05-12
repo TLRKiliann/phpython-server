@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import socket
+"""
+    Ana_py is an analyzer of http header !
+"""
 
-s = socket.socket()
+import requests
 
-ip = input("Enter IP addr (target): ")
-port = str(input("Enter PORT of target: "))
 
-s.connect((ip, int(port)))
-
-print(s.recv(1024))
+r = requests.get('https://httpbin.org/')
+print(r.text[:200])
