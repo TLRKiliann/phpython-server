@@ -16,8 +16,7 @@ def client_program():
 
     while message.lower().strip() != 'bye':
         client_socket.send(message.encode())  # send message with encode()
-          # receive response with decode()
-        data = client_socket.recv(1024).decode()
+        data = client_socket.recv(1024).decode()  # receive response with decode()
         print('Received from server: ' + data)  # show in terminal
         message = input(" -> ")  # again take input
     client_socket.close()  # close the connection
