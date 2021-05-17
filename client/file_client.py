@@ -8,7 +8,7 @@ TCP_PORT = 5000
 
 socket_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 socket_client.connect((TCP_IP, TCP_PORT))
-recived_f = 'myfile'+str(time.time()).split('.')[0]+'.txt'
+recived_f = 'myfile' + str(time.time()).split('.')[0] + '.txt'
 with open(recived_f, 'wb') as f:
     print('file opened')
     while True:
@@ -22,6 +22,6 @@ with open(recived_f, 'wb') as f:
         # write data to a file
         f.write(data)
 
-print('Successfully get the file')
+print('Successfully get the file !')
 socket_client.close()
-print('connection closed')
+print('-- Connection closed --')

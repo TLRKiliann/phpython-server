@@ -13,7 +13,7 @@ class ClientThread(Thread):
         self.ip = ip
         self.port = port
         self.socket_server = socket_server
-        print(" New thread started for "+ip+":"+str(port))
+        print("New thread started for " + ip + ":" + str(port))
 
     def run(self):
         filename = 'fileX.txt'
