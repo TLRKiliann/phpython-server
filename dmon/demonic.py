@@ -21,7 +21,7 @@ class TestThread(threading.Thread):
 
 if __name__ == "__main__":
     print("__main__ start")
-    if sys.argv[1] == "monic":
+    if sys.argv[1] == "demonic":
         thread = TestThread(True)
     else:
         thread = TestThread(False)
