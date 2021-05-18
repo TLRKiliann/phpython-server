@@ -1,7 +1,14 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Launch prog with python3 nmpython.py
+"""
+    Launch prog with : python3 nmpython.py
+    Enter address ex : 127.0.0.1
+    You can use : ps f | grep -i "python"
+    for seeing if python process run
+    or your internet interface :
+    sudo iftop -i <eth0, enp3s0 or other (ifconfig)>
+"""
 
 import socket
 import subprocess
@@ -12,7 +19,9 @@ from datetime import datetime
 subprocess.call('clear', shell=True)
 
 # Ask for input
-remoteServer = input("Enter a remote host to scan: ")
+remoteServer = input("Enter a remote host to scan : ")
+# You could choose socket.getfqdn().gethostbyaddr() but don't
+# let getfqdn empty, otherwise it will return for localhost.
 remoteServerIP = socket.gethostbyname(remoteServer)
 
 # Print a nice banner with information on which host we are about to scan
@@ -27,7 +36,7 @@ t1 = datetime.now()
 # We also put in some error handling for catching errors
 
 try:
-    for port in range(1, 1025):  
+    for port in range(49, 81):  
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         result = sock.connect_ex((remoteServerIP, port))
         if result == 0:
@@ -53,4 +62,4 @@ t2 = datetime.now()
 total = t2 - t1
 
 # Printing the information to screen
-print('Scanning Completed in: ', total)
+print('Scanning completed in: ', total)
