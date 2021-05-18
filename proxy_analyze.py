@@ -7,6 +7,7 @@ from http.server import BaseHTTPRequestHandler
 from http.server import HTTPServer
 import requests
 import requests_raw
+import binascii
 import time
 
 
@@ -40,9 +41,9 @@ class MyServer(BaseHTTPRequestHandler):
         data = {'title':'Pyton Requests','body':'Requests are qwesome','userId':1} 
         rp = requests.post('https://www.myip.com/posts', data, stream = True)
         print(type(rp.raw))
-        print(rp.raw)
         print(type(rp.raw.read(30)))
         print(rp.raw.read(30))
+        #print(str(rp.raw.read(30)))
 
         self.send_response(200)
         self.send_header("Content-type", "text/html")
@@ -62,7 +63,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("<p> --- Content : </p>", "utf-8"))
         self.wfile.write(bytes(rg.content))
         self.wfile.write(bytes("<p> --- Raw : </p>", "utf-8"))
-        self.wfile.write(bytes(rp.raw.read(30)))
+        self.wfile.write(bytes(rp.raw.read(30).strip()))
         self.wfile.write(bytes("<p> --- GET finished--- </p>", "utf-8"))
         self.wfile.write(bytes("------------- <br>", "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
