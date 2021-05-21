@@ -20,20 +20,39 @@ __author__='''
 
     Sniffing Data Packet Extractor
 '''
+
 __headers_support__="""
 Ethernet header Extraction
 IPv4 header Extraction
-Tcp header Extraction
+TCP header Extraction
 ICMP header Extraction
 UDP header Extraction
 """
 
+__Tutorial__="""
+    struct.unpack() :
+    Unpack from buffer starting at position offset, according to 
+    the format string format. The result is a tuple even if it 
+    contains exactly one item. The buffer’s size in bytes, starting 
+    at position offset, must be at least the size required by the 
+    format, as reflected by calcsize().
+
+    calcsize() :
+    Retourne la taille de la structure (et donc de l'objet bytes 
+    produit par pack(format, ...)) correspondant à la chaîne de 
+    format "format".
+
+    binascii.hexlify() :
+    Return the hexadecimal representation of the binary data. 
+    Every byte of data is converted into the corresponding 
+    2-digit hex representation. The returned bytes object is 
+    therefore twice as long as the length of data.
+"""
 
 # Importing Modules
 import socket
 import struct
 import binascii
-
 
 class unpack:
     def __cinit__(self):
@@ -104,7 +123,7 @@ class unpack:
     # Tcp Header Extraction
     def tcp_header(self, data):
         storeobj = struct.unpack('!HHLLBBHHH', data)
-        _source_port = storeobj[0] 
+        _source_port = storeobj[0]
         _destination_port = storeobj[1]
         _sequence_number = storeobj[2]
         _acknowledge_number = storeobj[3]

@@ -13,7 +13,6 @@
 #
 #
 __author__='''
-
 ######################################################
                 By S.S.B Group                          
 ######################################################
@@ -40,6 +39,7 @@ as_ip = input("Enter IP to sniff : ")
 
 if os.name == "nt":
     s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
+    # bind is for listening sockets...
     s.bind((as_ip, 0))
     s.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
     s.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
