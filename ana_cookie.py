@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
+
+"""
+    This Script is Created Only For
+    Educational Purpose.
+"""
 
 import requests
 

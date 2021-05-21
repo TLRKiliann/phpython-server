@@ -28,7 +28,10 @@ __author__='''
 ######################################################
 '''
 
-import socket, struct, binascii, os
+import socket
+import struct
+import binascii
+import os
 import pye
 
 print(pye.__author__)

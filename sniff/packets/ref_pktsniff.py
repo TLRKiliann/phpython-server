@@ -103,7 +103,7 @@ class unpack:
 
     # Tcp Header Extraction
     def tcp_header(self, data):
-        storeobj = struct.unpack('!HHLLBBHHH',data)
+        storeobj = struct.unpack('!HHLLBBHHH', data)
         _source_port = storeobj[0] 
         _destination_port = storeobj[1]
         _sequence_number = storeobj[2]
@@ -121,8 +121,7 @@ class unpack:
         "Tcp Flag":_tcp_flag,
         "Window":_window,
         "CheckSum":_checksum,
-        "Urgent Pointer":_urgent_pointer
-        }
+        "Urgent Pointer":_urgent_pointer}
         return data 
 
 # Mac Address Formating
