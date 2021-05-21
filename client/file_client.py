@@ -3,11 +3,12 @@
 import socket
 import time
 
-TCP_IP = 'localhost'
+TCP_IP = '127.0.0.1'
 TCP_PORT = 5000
 
 def client_receiver():
-    # socket.AF_INET = IPv4 and socket.SOCK_STREAM = TCP
+    # socket.AF_INET = IPv4
+    # socket.SOCK_STREAM = TCP
     socket_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     socket_client.connect((TCP_IP, TCP_PORT))
 
