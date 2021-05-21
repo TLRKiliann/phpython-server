@@ -11,7 +11,7 @@ import binascii
 import time
 
 
-host = "localhost"
+host = "127.0.0.1"
 port = 8000
 
 class MyServer(BaseHTTPRequestHandler):
