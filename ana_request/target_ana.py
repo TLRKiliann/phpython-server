@@ -24,7 +24,7 @@ class MyServer(BaseHTTPRequestHandler):
         print("\n")
         print(rg.url)
         print("\n")
-        print(rg.headers)
+        print(rg.requests.headers)
         print("\n")
         print(rg.encoding)
         print("\n")
