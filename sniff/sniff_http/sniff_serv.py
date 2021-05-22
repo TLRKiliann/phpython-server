@@ -19,13 +19,13 @@ import socket
 import struct
 import binascii
 import os
-import sys
+#import sys
+import subprocess
 import webbrowser
 
 print(__Explanations__)
 
 # Take input any valid URL
-easy = "https://"
 url = input("Enter any URL address: ")
 print(url)
 # Send request for the URL
@@ -50,6 +50,14 @@ print('Response server = ', urlResponse.info()["Server"])
 print("\n\n")
 
 print(__Extract__)
+
+
+url = input("Enter any URL address: ")
+# sub = webbrowser.get().open_new(url)
+sub = os.system("xfce4-terminal -e 'bash -c \"firefox; exec bash\"'")
+#sub = webbrowser.open(url)
+subprocess.run(sub)
+webbrowser.get().open_new(url)
 
 # Enter ip of your internet interface :
 as_ip = input("\nEnter IP to sniff : ")
@@ -94,3 +102,6 @@ while True:
 #webbrowser.get().open_new(url)
 #webbrowser.open(url, new=0, autoraise=True)
 #Opens URL in Firefox browser
+#Subprogram = subprocess.run("xfce4-terminal -e 'bash -c \"start firefox; exec bash\"'", stdout=PIPE)
+#sub = webbrowser.get().open_new(url)
+#subprocess.run(sub)
