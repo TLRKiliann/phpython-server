@@ -31,9 +31,9 @@ import socket
 import struct
 import binascii
 import os
-import pye
+import ref_pktsniff
 
-print(pye.__author__)
+print(ref_pktsniff.__author__)
 
 as_ip = input("Enter IP to sniff : ")
 
@@ -52,34 +52,21 @@ else:
 while True:
     print("<<<<<<<<<<<<< HEAD")
     pkt = s.recvfrom(65565)
-    unpack = pye.unpack()
+    unpack = ref_pktsniff.unpack()
+    
     print("\n\n===>> [+] --- Ethernet Header --- [+]")
     for i in unpack.eth_header(pkt[0][0:14]).items():
         a, b = i
         print("{} : {} | ".format(a,b),)
+    
     print("\n===>> [+] ------ IP Header ------ [+]")
     for i in unpack.ip_header(pkt[0][14:34]).items():
         a, b = i
         print("{} : {} | ".format(a,b),)
+    
     print("\n===>> [+] -+-+-+-+-+-+- Tcp Header -+-+-+-+-+-+- [+]")
     for  i in unpack.tcp_header(pkt[0][34:54]).items():
         a, b = i
         print("{} : {} | ".format(a, b),)
-
-    print("=======")
-    pkt=s.recvfrom(65565)
-    unpack=pye.unpack()
-    print("\n\n===>> [+] ------------ Ethernet Header----- [+]")
-    for i in unpack.eth_header(pkt[0][0:14]).items():
-        a,b=i
-        print("{} : {} | ".format(a,b),)
-    print("\n===>> [+] ------------ IP Header ------------[+]")
-    for i in unpack.ip_header(pkt[0][14:34]).items():
-        a,b=i
-        print("{} : {} | ".format(a,b),)
-    print("\n===>> [+] ------------ Tcp Header ----------- [+]")
-    for  i in unpack.tcp_header(pkt[0][34:54]).items():
-        a,b=i
-        print("{} : {} | ".format(a,b),)
 
     print(">>>>>>>>>>>>>> master")
