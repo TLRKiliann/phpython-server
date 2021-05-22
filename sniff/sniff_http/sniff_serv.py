@@ -19,12 +19,15 @@ import socket
 import struct
 import binascii
 import os
+import sys
+import webbrowser
 
 print(__Explanations__)
 
 # Take input any valid URL
 easy = "https://"
 url = input("Enter any URL address: ")
+print(url)
 # Send request for the URL
 request = urllib.request.Request(url)
 r = requests.get(url)
@@ -52,7 +55,7 @@ print(__Extract__)
 as_ip = input("\nEnter IP to sniff : ")
 
 # To get addr source and destination
-class unpack:
+class unpack():
     def __cinit__(self):
         self.data = None
 
@@ -86,3 +89,8 @@ while True:
     for i in dpack.ip_header(pkt[0][14:34]).items():
         a, b = i
         print("{} : {} | ".format(a,b),)
+
+# open firefox
+#webbrowser.get().open_new(url)
+#webbrowser.open(url, new=0, autoraise=True)
+#Opens URL in Firefox browser
