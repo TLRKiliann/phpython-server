@@ -11,8 +11,7 @@ import sys
 import webbrowser
 
 def callMyBrow(url):
-    #url = "https://www.google.com"
+    # url = prefix + ask 
     print(__OpenBrowser__)
     os.system("xfce4-terminal -e 'bash -c \"sudo python3 ana_pkt.py; exec bash\"'")
-    #subprocess.run(["xfce4-terminal", "-x", "sudo python3 ana_pkt.py"])
     webbrowser.get().open_new(url)

@@ -7,7 +7,7 @@ __Explanations__="""
 
 __Extract__="""
     Extract traffic IP from your
-    internet interface (ifconfig)
+    ethernet interface (ifconfig)
     and look at enps0 or eth0 to
     catch ip addr.
 """
@@ -16,10 +16,7 @@ import requests
 import urllib.request
 import urllib.error
 import socket
-import struct
-import binascii
 import subprocess
-#import os
 import hey_bro
 
 
@@ -27,11 +24,9 @@ print(__Explanations__)
 
 # Take input any valid URL
 prefix = "https://"
-
 ask = input("Enter any URL address : https://")
 url = prefix + ask
 print(url)
-#url = "https://www.google.com"
 # Send request for the URL
 request = urllib.request.Request(url)
 r = requests.get(url)
@@ -53,13 +48,7 @@ print("\n--- SERVER ---\n")
 print('Response server = ', urlResponse.info()["Server"])
 print("\n\n")
 
+print(__Extract__)
+
 subprocess.run(["ping", "-c", "1", ask])
 hey_bro.callMyBrow(url)
-
-# open firefox
-#webbrowser.get().open_new(url)
-#webbrowser.open(url, new=0, autoraise=True)
-#Opens URL in Firefox browser
-#Subprogram = subprocess.run("xfce4-terminal -e 'bash -c \"start firefox; exec bash\"'", stdout=PIPE)
-#sub = webbrowser.get().open_new(url)
-#subprocess.run(sub)

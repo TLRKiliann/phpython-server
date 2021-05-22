@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
 __Analyzer__="""
-    Retrieve packet to extract
-    IP src and IP dst. Obliged
-    to build 3 files for calling
-    terminal window... Or maybe not.
+    Recover packets to extract
+    src IP and dest IP. Required
+    to build 3 files to call
+    terminal window...
 """
 
 import os
@@ -20,9 +20,7 @@ print(__Analyzer__)
 #webbrowser.get().open_new(url)
 
 # Enter ip of your internet interface :
-#hey_bro.callMyBrow()
-
-as_ip = input("\nEnter IP to sniff : ")
+as_ip = input("\nEnter IP of ethernet interface to sniff : ")
 
 # To get addr source and destination
 class unpack():
@@ -43,12 +41,14 @@ class unpack():
         return data
 
 if os.name == "nt":
+    #For Windows
     s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
     # bind is for listening sockets...
     s.bind((as_ip, 0))
     s.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
     s.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
 else:
+    # For Linux
     s = socket.socket(socket.PF_PACKET, socket.SOCK_RAW, socket.ntohs(0x0800))
 
 while True:
