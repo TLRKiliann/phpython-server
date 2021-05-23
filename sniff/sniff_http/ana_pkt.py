@@ -29,9 +29,26 @@ class Unpack():
     # IP Header Extraction
     def ip_header(self, data):
         storeobj = struct.unpack("!BBHHHBBH4s4s", data)
+        _version = storeobj[0] 
+        _tos=storeobj[1]
+        _total_length = storeobj[2]
+        _identification = storeobj[3]
+        _fragment_Offset = storeobj[4]
+        _ttl = storeobj[5]
+        _protocol = storeobj[6]
+        _header_checksum = storeobj[7]
         _source_address = socket.inet_ntoa(storeobj[8])
         _destination_address = socket.inet_ntoa(storeobj[9])
-        data={"Source Address":_source_address,
+
+        data = {'Version':_version,
+        "Tos":_tos,
+        "Total Length":_total_length,
+        "Identification":_identification,
+        "Fragment":_fragment_Offset,
+        "TTL":_ttl,
+        "Protocol":_protocol,
+        "Header CheckSum":_header_checksum,
+        "Source Address":_source_address,
         "Destination Address":_destination_address}
         return data
 

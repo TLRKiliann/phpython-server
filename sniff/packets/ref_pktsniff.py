@@ -157,7 +157,6 @@ def get_host(q):
         k = 'Unknown'
     return k
 
-
 """
 Fork it!
 Create your feature branch: git checkout -b my-new-feature
