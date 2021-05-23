@@ -1,17 +1,21 @@
 #!/usr/bin/python3
 
 __OpenBrowser__="""
-    One manner to get http packet
-    with this method.
+    Start browser with url
+    and launch ana_pkt.py in
+    a new terminal.
 """
 
-#import subprocess
 import os
 import sys
 import webbrowser
 
 def callMyBrow(url):
-    # url = prefix + ask 
+    """
+        Start browser with url
+        and launch ana_pkt.py in
+        a new terminal.
+    """
     print(__OpenBrowser__)
     os.system("xfce4-terminal -e 'bash -c \"sudo python3 ana_pkt.py; exec bash\"'")
     webbrowser.get().open_new(url)

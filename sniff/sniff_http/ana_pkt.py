@@ -4,7 +4,8 @@ __Analyzer__="""
     Recover packets to extract
     src IP and dest IP. Required
     to build 3 files to call
-    terminal window...
+    terminal window.
+    This is the third...
 """
 
 import os
@@ -13,17 +14,11 @@ import struct
 
 print(__Analyzer__)
 
-#sub = os.system("xfce4-terminal -e 'bash -c \"firefox; exec bash\"'")
-#sub = webbrowser.open(url)
-# sub = webbrowser.get().open_new(url)
-#subprocess.run(["xfce4-terminal", "-x", "python3 hey_bro.py"])
-#webbrowser.get().open_new(url)
-
 # Enter ip of your internet interface :
 as_ip = input("\nEnter IP of ethernet interface to sniff : ")
 
 # To get addr source and destination
-class unpack():
+class Unpack():
     def __cinit__(self):
         self.data = None
 
@@ -54,7 +49,7 @@ else:
 while True:
     print("<<<<<<<<<<<<< HEAD")
     pkt = s.recvfrom(65565)
-    dpack = unpack()
+    dpack = Unpack()
     print("\n===>> [+] ------ IP Header ------ [+]")
     for i in dpack.ip_header(pkt[0][14:34]).items():
         a, b = i

@@ -9,8 +9,6 @@ import time
     To open xfce4-terminal (with python) and display netstat -npte (with bash).
 """
 
-# xfce4-terminal -e 'bash -c \"...\"exec bash = xfce4-terminal execute cmd and bash reads
-# non-string command and finally execute it with exec bash.
 os.system("xfce4-terminal -e 'bash -c \"watch -n 1 netstat -npte; exec bash\"'")
 startTime = time.time()
 

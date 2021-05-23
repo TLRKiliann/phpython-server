@@ -2,7 +2,7 @@
 
 __Explanations__="""
     One manner to get http packet
-    with this method.
+    and return ip src & dst.
 """
 
 __Extract__="""
@@ -12,13 +12,12 @@ __Extract__="""
     catch ip addr.
 """
 
-import requests
-import urllib.request
 import urllib.error
+import urllib.request
 import socket
 import subprocess
+import requests
 import hey_bro
-
 
 print(__Explanations__)
 
@@ -37,9 +36,9 @@ try:
     # Try to open the URL
     urllib.request.urlopen(request)
     print("URL Exist")
-except urllib.error.HTTPError as e:
+except urllib.error.HTTPError as msg:
     # Print the error code and error reason
-    print("Error code:%d\nError reason:%s" %(e.code, e.reason))
+    print("Error code:%d\nError reason:%s" %(msg.code, msg.reason))
 
 urlResponse = urllib.request.urlopen(url)
 print("\n--- url info ---")
