@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
 __OpenBrowser__="""
-    Start browser with url
-    and launch ana_pkt.py in
-    a new terminal.
++++++++++++++++++++++++++++++++++++++++
+    - Second script called to start 
+      browser with url and launch 
+      ana_pkt.py in a new terminal.
++++++++++++++++++++++++++++++++++++++++
 """
 
 import os

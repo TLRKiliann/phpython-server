@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 
 __Analyzer__="""
-    Recover packets to extract
-    src IP and dest IP. Required
-    to build 3 files to call
-    terminal window.
-    This is the third...
-"""
++++++++++++++++++++++++++++++++++++++
+    - Recover packets to extract
+      src IP and dest IP.
++++++++++++++++++++++++++++++++++++++
+ """
 
 import os
 import socket

@@ -1,15 +1,18 @@
 #!/usr/bin/python3
 
 __Explanations__="""
-    One manner to get http packet
-    and return ip src & dst.
++++++++++++++++++++++++++++++++++++++++
+    - This app show how to get http 
+      packet and return ip src & dst.
++++++++++++++++++++++++++++++++++++++++
 """
 
 __Extract__="""
-    Extract traffic IP from your
-    ethernet interface (ifconfig)
-    and look at enps0 or eth0 to
-    catch ip addr.
++++++++++++++++++++++++++++++++++++++++
+    - Extract traffic IP from your
+      ethernet interface (use 
+      ifconfig) and catch ip addr.
++++++++++++++++++++++++++++++++++++++++
 """
 
 import urllib.error
@@ -25,11 +28,12 @@ print(__Explanations__)
 prefix = "https://"
 ask = input("Enter any URL address : https://")
 url = prefix + ask
-print(url)
+
+print("\n", url)
 # Send request for the URL
 request = urllib.request.Request(url)
 r = requests.get(url)
-print("\n--- header ---")
+print("\n------------------------ HTTP HEADER ------------------------")
 print(r.request.headers)
 
 try:
@@ -41,9 +45,9 @@ except urllib.error.HTTPError as msg:
     print("Error code:%d\nError reason:%s" %(msg.code, msg.reason))
 
 urlResponse = urllib.request.urlopen(url)
-print("\n--- url info ---")
+print("\n------------------------ URL INFO ------------------------")
 print(urlResponse.info())
-print("\n--- SERVER ---\n")
+print("\n------------------------ SERVER ------------------------")
 print('Response server = ', urlResponse.info()["Server"])
 print("\n\n")
 
@@ -57,7 +61,6 @@ __flyhost__="""
                    $$$   $$$$$$$$$$
                    $$$   $$$
                    $$$   $$$
-                   $$$   $$$
 
 ########################################################
 ////////////////////////////////////////////////////////
@@ -66,7 +69,8 @@ __flyhost__="""
 print(__flyhost__)
 
 IP_ADRESS = socket.gethostbyname(ask)
-print("\n+ IP address of {} : {} \n".format(ask, IP_ADRESS))
+print("\n------------------------ IP dst ------------------------")
+print("+ IP address of {} : {} \n".format(ask, IP_ADRESS))
 
 __quickping__="""
 ########################################################
@@ -84,6 +88,8 @@ __quickping__="""
 
 print(__quickping__)
 
+
+print("\n------------------------ PING ------------------------")
 subprocess.run(["ping", "-c", "1", ask])
 
 # Call second file to launch browser
