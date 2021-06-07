@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
-"""
+__Explain__="""
+-------------------------------------------------------
+########################################################
+
     To write html code to fromanah.php with python3
     Execute :
     python3 ana_html.py 
@@ -12,10 +15,23 @@
     sudo php -S 127.0.0.1:80/fromanah.php
     Go to webbrowser and enter :
     127.0.0.1:80/fromanah.php
+    You don't need to launch webbrowser, because
+    it's automata.
+
+########################################################
+-------------------------------------------------------
 """
 
+import os
+import sys
 import codecs
-import subprocess
+import time
+import socket
+#import requests
+from urllib.parse import urlunparse
+#import subprocess
+import hey_bro
+
 
 # to open/create a new html file in the write mode
 f = open( 'fromanah.php', 'w')
@@ -74,26 +90,39 @@ f.write(html_template)
 # close the file
 f.close()
   
-# viewing html files
+# viewing html or php files
 # below code creates a 
 # codecs.StreamReaderWriter object
 file = codecs.open("fromanah.php", 'r', "utf-8")
 
 # using .read method to view the html 
-# code from our object
+# php code from our object
 print(file.read())
 
-proc = subprocess.run("sudo php -S 127.0.0.1:80/fromanah.php",
-    shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-#print(proc.stderr)
-#print(proc.stderr)
-err_proc = proc.stderr.read()
-out_proc = proc.stdout.read()
-print(proc.out_proc.read())
-print(proc.err_proc.read())
-#print("Result php stderr : %s" % repr())
-print("Result php stderr : %s" % repr(out_proc))
+
+port = 80
+url = '{}://127.0.0.1/fromanah.php'.format(socket.getservbyport(port))
+print(url)
+
+print(__Explain__)
+time.sleep(2)
+
+# To call hey_bro.py for launching function callMyBrow(url) :
+hey_bro.callMyBrow(url)
+
+
+# possibility to launch server with this line :
+# proc = subprocess.run("sudo php -S 127.0.0.1:80/fromanah.php", shell=True)
+# But webbrowser will cannot start at first page (new PID launched...)
+#To test subprocess with stdout and stderr :
+# stdout=subprocess.PIPE, stderr=subprocess.PIPE
+
+"""
+print("Result php stderr : %s" % repr(proc.stdout))
 if proc.stderr == b'':
-    print("+ File launched !")
+    print("=> File launched !")
+elif proc.stdout == b'':
+    print("=> Ok goooooooooo!")
 else:
-    print("+ Some trb... !")
+    print("=> Some trb... !")
+"""
