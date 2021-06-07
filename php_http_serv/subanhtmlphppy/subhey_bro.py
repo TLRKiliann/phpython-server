@@ -71,11 +71,9 @@ end finally prints out to your CLI in color.
 
 source: (grep 2.21)
 
-grep.c line 306, 2374, 2440
-colorize-posix.c line 36
-man isatty 
-
-
+> grep.c line 306, 2374, 2440
+> colorize-posix.c line 36
+> man isatty 
 
 *************************************************************************
 ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢¢ŋ¢ŋ¢ŋ¢
@@ -84,6 +82,6 @@ man isatty
 
 def callMyBrow(url):
     print(__OpenBrowser__)
-    os.system("xfce4-terminal -e 'bash -c \"firefox 127.0.0.1:80/fromanah.php &; exec bash\"'")
+    os.system("xfce4-terminal -e 'bash -c \"firefox 127.0.0.1:80/subfromanah.php &; exec bash\"'")
     webbrowser.get().open_new(url)
     print(__StopServer__)

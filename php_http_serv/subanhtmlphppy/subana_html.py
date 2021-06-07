@@ -4,7 +4,7 @@ __Explain__="""
 -------------------------------------------------------
 ########################################################
 
-    To write html code to fromanah.php with python3
+    To write html code to subfromanah.php with python3
     Execute :
     python3 ana_html.py 
     and then :
@@ -12,9 +12,9 @@ __Explain__="""
     (html extension for seeing what we do,
     change to .php for next cmd)
     launch php serveur with this cmd :
-    sudo php -S 127.0.0.1:80/fromanah.php
+    sudo php -S 127.0.0.1:80/subfromanah.php
     Go to webbrowser and enter :
-    127.0.0.1:80/fromanah.php
+    127.0.0.1:80/subfromanah.php
     You don't need to launch webbrowser, because
     it's automata.
 
@@ -30,13 +30,13 @@ import socket
 #import requests
 from urllib.parse import urlunparse
 #import subprocess
-import hey_bro
+import subhey_bro
 
 
 # to open/create a new html file in the write mode
-f = open( 'fromanah.php', 'w')
+f = open( 'subfromanah.php', 'w')
   
-# the html code which will go in the file fromanah.php
+# the html code which will go in the file subfromanah.php
 html_template = """<?php
 // Execute to an other shell => sudo php -S 127.0.0.1:80
 session_start();
@@ -93,7 +93,7 @@ f.close()
 # viewing html or php files
 # below code creates a 
 # codecs.StreamReaderWriter object
-file = codecs.open("fromanah.php", 'r', "utf-8")
+file = codecs.open("subfromanah.php", 'r', "utf-8")
 
 # using .read method to view the html 
 # php code from our object
@@ -103,14 +103,14 @@ print(__Explain__)
 time.sleep(1)
 
 port = 80
-url = '{}://127.0.0.1/fromanah.php'.format(socket.getservbyport(port))
+url = '{}://127.0.0.1/subfromanah.php'.format(socket.getservbyport(port))
 print(url)
 
 # To call hey_bro.py for launching function callMyBrow(url) :
-hey_bro.callMyBrow(url)
+subhey_bro.callMyBrow(url)
 
 # possibility to launch server with this line :
-# proc = subprocess.run("sudo php -S 127.0.0.1:80/fromanah.php", shell=True)
+# proc = subprocess.run("sudo php -S 127.0.0.1:80/subfromanah.php", shell=True)
 # But webbrowser will cannot start at first page (new PID launched...)
 #To test subprocess with stdout and stderr :
 # stdout=subprocess.PIPE, stderr=subprocess.PIPE

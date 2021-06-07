@@ -13,10 +13,9 @@ import sys
 import webbrowser
 import subprocess
 
-
 __StopServer__="""
 .........................................................................
-ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢¢ŋ¢ŋ¢ŋ¢
+¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢
 *************************************************************************
 
     -----------------------------------------------------------------
@@ -40,14 +39,18 @@ __StopServer__="""
 > lsof -i 
 - To verify if every pid stopped !
 
-
 - If you see :
 ...14788  1036 pts/2    S+   17:36   0:00 grep --color=auto -i php
+...14788  1100 pts/1    S+   17:36   0:00 grep --color=auto -i firefox
 
 S = interruptible sleep (waiting for an event to complete)
 + = in the foreground process group
 
 --color=auto -i php = 
+
+-i = insensitive case
+
+php = service of systemd, system V or upstart...
 
 'https://unix.stackexchange.com/questions/236960/what-does-the-color-
 auto-option-for-gnu-grep-mean'
@@ -73,17 +76,18 @@ source: (grep 2.21)
 
 grep.c line 306, 2374, 2440
 colorize-posix.c line 36
-man isatty 
+> man isatty 
 
-
+Click on "quit" to your browser to finish clearly process.
 
 *************************************************************************
-ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢ŋ¢¢ŋ¢ŋ¢ŋ¢
+¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢
 .........................................................................
 """
 
 def callMyBrow(url):
     print(__OpenBrowser__)
-    os.system("xfce4-terminal -e 'bash -c \"firefox 127.0.0.1:80/fromanah.php &; exec bash\"'")
-    webbrowser.get().open_new(url)
-    print(__StopServer__)
+    os.system("xfce4-terminal -e 'bash -c \"firefox {}; exec bash\"'".format(url))
+    # Open a new tab in webbrowser with url defined before :
+    #webbrowser.get().open_new(url)
+    #print(__StopServer__)

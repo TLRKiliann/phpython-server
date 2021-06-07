@@ -10,7 +10,7 @@ __Explain__="""
     and then :
     firefox fromanah.html
     (html extension for seeing what we do,
-    change to .php for next cmd)
+    change to fromanah.php for next cmd)
     launch php serveur with this cmd :
     sudo php -S 127.0.0.1:80/fromanah.php
     Go to webbrowser and enter :
@@ -27,10 +27,11 @@ import sys
 import codecs
 import time
 import socket
-#import requests
+import requests
 from urllib.parse import urlunparse
-#import subprocess
+import subprocess
 import hey_bro
+import procfile 
 
 
 # to open/create a new html file in the write mode
@@ -103,14 +104,15 @@ print(__Explain__)
 time.sleep(1)
 
 port = 80
-url = '{}://127.0.0.1/fromanah.php'.format(socket.getservbyport(port))
+url = '{}://127.0.0.1:80/fromanah.php'.format(socket.getservbyport(port))
 print(url)
 
 # To call hey_bro.py for launching function callMyBrow(url) :
 hey_bro.callMyBrow(url)
 
-# possibility to launch server with this line :
-# proc = subprocess.run("sudo php -S 127.0.0.1:80/fromanah.php", shell=True)
+phpserv = "sudo php -S 127.0.0.1:80/fromanah.php"
+procfile.callProcFunc(phpserv)
+
 # But webbrowser will cannot start at first page (new PID launched...)
 #To test subprocess with stdout and stderr :
 # stdout=subprocess.PIPE, stderr=subprocess.PIPE
