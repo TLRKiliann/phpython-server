@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+"""
+    To communicate between client and server
+"""
+
 import socket
 import sys
 

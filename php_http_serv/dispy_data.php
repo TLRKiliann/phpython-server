@@ -1,5 +1,7 @@
 <?php
-// php -S 127.0.0.1:8000 dispy_data.php
+// execute to an other shell => php -S 127.0.0.1:8000 dispy_data.php
+// This script show you how to display data from php commands and
+// from python3 commands.
 session_start();
 ?>
 
@@ -65,7 +67,7 @@ session_start();
         echo "<p><p/>";
         print_r($output);
         echo "<p></p>";
-        //Execude command in the shell with PHP shell_exec() function
+        //Execute command in the shell with PHP shell_exec() function
         //put the output into $out variable
         $out = shell_exec("uname -a");
         echo $out;

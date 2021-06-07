@@ -1,5 +1,5 @@
 <?php
-// sudo php -S 127.0.0.1:80
+// Execute to an other shell => sudo php -S 127.0.0.1:80
 session_start();
 ?>
 
@@ -19,7 +19,7 @@ session_start();
         <h4>Results from server 1 :</h4>
             <div class="content">
                 <?php
-                // Récupération d'adresse IP
+                // To retrieve IP address
                 function get_ip()
                 {
                     if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
