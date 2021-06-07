@@ -15,6 +15,7 @@
 """
 
 import codecs
+import subprocess
 
 # to open/create a new html file in the write mode
 f = open( 'fromanah.php', 'w')
@@ -77,7 +78,22 @@ f.close()
 # below code creates a 
 # codecs.StreamReaderWriter object
 file = codecs.open("fromanah.php", 'r', "utf-8")
-  
+
 # using .read method to view the html 
 # code from our object
 print(file.read())
+
+proc = subprocess.run("sudo php -S 127.0.0.1:80/fromanah.php",
+    shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+#print(proc.stderr)
+#print(proc.stderr)
+err_proc = proc.stderr.read()
+out_proc = proc.stdout.read()
+print(proc.out_proc.read())
+print(proc.err_proc.read())
+#print("Result php stderr : %s" % repr())
+print("Result php stderr : %s" % repr(out_proc))
+if proc.stderr == b'':
+    print("+ File launched !")
+else:
+    print("+ Some trb... !")
