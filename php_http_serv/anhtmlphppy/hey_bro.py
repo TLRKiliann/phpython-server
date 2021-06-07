@@ -48,7 +48,7 @@ S = interruptible sleep (waiting for an event to complete)
 
 --color=auto -i php = 
 
--i = insensitive case
+-i = --ignore-case
 
 php = service of systemd, system V or upstart...
 
