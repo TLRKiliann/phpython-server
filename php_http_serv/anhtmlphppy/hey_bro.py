@@ -79,6 +79,7 @@ colorize-posix.c line 36
 > man isatty 
 
 Click on "quit" to your browser to finish clearly process.
+"Ctrl + c" to stop PHP server.
 
 *************************************************************************
 ¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢
@@ -86,8 +87,10 @@ Click on "quit" to your browser to finish clearly process.
 """
 
 def callMyBrow(url):
+    """
+    """
     print(__OpenBrowser__)
     os.system("xfce4-terminal -e 'bash -c \"firefox {}; exec bash\"'".format(url))
     # Open a new tab in webbrowser with url defined before :
     #webbrowser.get().open_new(url)
-    #print(__StopServer__)
+    print(__StopServer__)
