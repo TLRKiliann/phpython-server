@@ -110,19 +110,7 @@ print(url)
 # To call hey_bro.py for launching function callMyBrow(url) :
 hey_bro.callMyBrow(url)
 
+# Defined phpserv
 phpserv = "sudo php -S 127.0.0.1:80/fromanah.php"
+# Call function from procfile.py and pass var to the function
 procfile.callProcFunc(phpserv)
-
-# But webbrowser will cannot start at first page (new PID launched...)
-#To test subprocess with stdout and stderr :
-# stdout=subprocess.PIPE, stderr=subprocess.PIPE
-
-"""
-print("Result php stderr : %s" % repr(proc.stdout))
-if proc.stderr == b'':
-    print("=> File launched !")
-elif proc.stdout == b'':
-    print("=> Ok goooooooooo!")
-else:
-    print("=> Some trb... !")
-"""

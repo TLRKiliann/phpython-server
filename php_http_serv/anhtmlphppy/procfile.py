@@ -23,8 +23,9 @@ def callProcFunc(phpserv):
     # To display error in shell, and to exit php server cleanly
     # Change value of port in ana_html.py by 443 (required root mode)
     # Test it ! When you quit webbrowser, php server run with pid
-    # use : 
+    # use this cmd for killing process : 
     # ps aux | grep "php"
+    print("=> Stderr output : %s" % repr(proc.stderr))
     if proc.stderr == b'' :
         # If error occured, this line print stderr in shell
         print("=> Stderr output : %s" % repr(proc.stderr))
