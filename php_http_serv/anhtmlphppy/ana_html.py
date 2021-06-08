@@ -30,7 +30,6 @@ import socket
 import requests
 from urllib.parse import urlunparse
 import subprocess
-import hey_bro
 import procfile 
 
 
@@ -107,10 +106,8 @@ port = 80
 url = '{}://127.0.0.1:80/fromanah.php'.format(socket.getservbyport(port))
 print(url)
 
-# To call hey_bro.py for launching function callMyBrow(url) :
-hey_bro.callMyBrow(url)
+servphp = "sudo php -S 127.0.0.1:80/fromanah.php"
 
-# Defined phpserv
-phpserv = "sudo php -S 127.0.0.1:80/fromanah.php"
 # Call function from procfile.py and pass var to the function
-procfile.callProcFunc(phpserv)
+# for launching php server
+procfile.callProcFunc(servphp, url)

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#! -*- coding : utf-8 -*-
 
 
 __RdProc__ = """
@@ -10,24 +11,21 @@ __RdProc__ = """
 """
 
 
-import subprocess
+import os
+import sys
+import socket
+import hey_bro
 
 
-def callProcFunc(phpserv):
-    """
-        phpserv is defined in ana_html.py script :
-        phpserv = "sudo php -S 127.0.0.1:80/fromanah.php"
-    """
+def callProcFunc(servphp, url):
     print(__RdProc__)
-    proc = subprocess.Popen(phpserv, stderr=subprocess.PIPE, shell=True)
-    # To display error in shell, and to exit php server cleanly
-    # Change value of port in ana_html.py by 443 (required root mode)
-    # Test it ! When you quit webbrowser, php server run with pid
-    # use this cmd for killing process : 
-    # ps aux | grep "php"
-    print("=> Stderr output : %s" % repr(proc.stderr))
-    if proc.stderr == b'' :
-        # If error occured, this line print stderr in shell
-        print("=> Stderr output : %s" % repr(proc.stderr))
+
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    result = sock.connect_ex(('127.0.0.1', 80))
+    if result == 0:
+       print("Port of php server - open")
+       # To call hey_bro.py for launching function callMyBrow(url) :
+       hey_bro.callMyBrow(url)
     else:
-        pass
+       print("php server - close")
+       os.system("xfce4-terminal -e 'bash -c \"{}; exec bash\"'".format(servphp))

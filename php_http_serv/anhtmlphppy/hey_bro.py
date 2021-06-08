@@ -88,9 +88,10 @@ Click on "quit" to your browser to finish clearly process.
 
 def callMyBrow(url):
     """
+        To open browser with addr
     """
     print(__OpenBrowser__)
     os.system("xfce4-terminal -e 'bash -c \"firefox {}; exec bash\"'".format(url))
     # Open a new tab in webbrowser with url defined before :
-    #webbrowser.get().open_new(url)
+    # webbrowser.get().open_new(url)
     print(__StopServer__)
