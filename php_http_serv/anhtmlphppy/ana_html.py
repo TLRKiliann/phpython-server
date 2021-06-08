@@ -46,6 +46,8 @@ session_start();
     <head>
         <meta charset="Utf-8" />
         <link rel="stylesheet" href="fromanah.css" type="text/css" />
+        <link rel="shortcut icon" href="my_icon.png" type="image/png">
+        <link rel="icon" href="my_icon.png" type="image/png">
     </head>
     <body>
     <h1>Wellcome to Ana-H site !</h1>
