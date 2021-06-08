@@ -31,7 +31,7 @@ __StopServer__="""
                   |* Stop "php server" as follow : *|
                   -----------------------------------
 
-> kill $(ps aux | grep '[p]ython csp_build.py' | awk '{print $2}')
+> kill $(ps aux | grep '[p]ython fromanah.py' | awk '{print $2}')
 - It will stop all pid ;)
 
                        ------------------------

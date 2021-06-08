@@ -31,7 +31,6 @@ f = open( 'fromanah.php', 'w')
   
 # the html code which will go in the file fromanah.php
 html_template = """<?php
-// Execute to an other shell => sudo php -S 127.0.0.1:80
 session_start();
 ?>
 <!DOCTYPE html>
