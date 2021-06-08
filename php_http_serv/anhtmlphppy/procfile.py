@@ -5,7 +5,14 @@
 __RdProc__ = """
 ¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢
 
-        To launch PHP SERVER !
+      !!! To launch PHP SERVER !!!
+
+At the first launch of the php server, you 
+have to enter a password for the superuser, 
+which interrupts the program.
+You just have to restart programm with the 
+following command :
+> python3 ana_html.py
 
 ¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢
 """

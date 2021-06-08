@@ -3,7 +3,8 @@
 __OpenBrowser__="""
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-    This script launch webbrowser !
+      This script launch browser 
+            with addr (LAN)
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 """

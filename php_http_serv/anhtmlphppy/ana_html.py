@@ -4,19 +4,12 @@ __Explain__="""
 -------------------------------------------------------
 ########################################################
 
-    To write html code to fromanah.php with python3
-    Execute :
-    python3 ana_html.py 
-    and then :
-    firefox fromanah.html
-    (html extension for seeing what we do,
-    change to fromanah.php for next cmd)
-    launch php serveur with this cmd :
-    sudo php -S 127.0.0.1:80/fromanah.php
-    Go to webbrowser and enter :
-    127.0.0.1:80/fromanah.php
-    You don't need to launch webbrowser, because
-    it's automata.
+    This script allows to write in the file fromanah.php 
+    and to launch the php server while opening the browser 
+    with address (localhost)
+    
+    To run programm, execute :
+    > python3 ana_html.py 
 
 ########################################################
 -------------------------------------------------------
@@ -108,6 +101,7 @@ port = 80
 url = '{}://127.0.0.1:80/fromanah.php'.format(socket.getservbyport(port))
 print(url)
 
+# To define variable for callProcFunc()
 servphp = "sudo php -S 127.0.0.1:80/fromanah.php"
 
 # Call function from procfile.py and pass var to the function
