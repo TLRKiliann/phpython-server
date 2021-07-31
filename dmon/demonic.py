@@ -4,6 +4,10 @@ import sys
 import threading
 import time
 
+"""
+    python3 demonic.py daemonsys
+"""
+
 class TestThread(threading.Thread):
     def __init__(self, daemon):
         threading.Thread.__init__(self)
@@ -21,7 +25,7 @@ class TestThread(threading.Thread):
 
 if __name__ == "__main__":
     print("__main__ start")
-    if sys.argv[1] == "demonic":
+    if sys.argv[1] == "daemonsys":
         thread = TestThread(True)
     else:
         thread = TestThread(False)
