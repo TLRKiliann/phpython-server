@@ -5,8 +5,10 @@ import socket
 import threading
 
 
-TCP_IP = "localhost"
+TCP_IP = socket.gethostbyname("127.0.0.1")
 TCP_PORT = 5000
+
+
 
 class ClientThread(threading.Thread):
     """
@@ -18,21 +20,19 @@ class ClientThread(threading.Thread):
         self.ip = ip
         self.port = port
         self.socket_server = socket_server
-        print("New thread started for " + ip + ":" + str(port))
+        print("+ New thread started for " + ip + ":" + str(port))
 
     def run(self):
         filename = 'fileX.txt'
         f = open(filename, 'rb')
-        while True:
-            l = f.read(1024)
-            while (l):
-                self.socket_server.send(l)
-                #print('Sent ',repr(l))
-                l = f.read(1024)
-            if not l:
-                f.close()
-                self.socket_server.close()
-                break
+        l = f.read(1024)
+        while (l):
+           conn.send(l)
+           print('Sent ',repr(l))
+           l = f.read(1024)
+        f.close()
+        self.socket_server.close()
+        #break
 
 # socket.AF_INET=IPv4 and socket.SOCK_STREAM=TCP
 tcpsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -59,13 +59,13 @@ while True:
     threads.append(newthread)
     # Number of thread
     i+=1
-    print("thread : ", i)
+    print("+ Thread : ", i)
 
     outgo = input("+ Continue ? (y/n): ")
     if outgo == "n":
         break
     else:
-        print("Continue")
+        print("-.- Continue -.-")
 
 for t in threads:
     t.join()

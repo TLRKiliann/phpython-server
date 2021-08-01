@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
+
 import socket
 import time
 
-TCP_IP = '127.0.0.1'
+
+TCP_IP = socket.gethostbyname("127.0.0.1")
 TCP_PORT = 5000
 
 def client_receiver():
@@ -11,22 +13,25 @@ def client_receiver():
     # socket.SOCK_STREAM = TCP
     socket_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     socket_client.connect((TCP_IP, TCP_PORT))
+    socket_client.send(b"Hello server !")
 
-    recived_f = 'myfile' + str(time.time()).split('.')[0] + '.txt'
-    with open(recived_f, 'wb') as f:
+    recived_f = 'fileX.txt'
+    with open('received_file', 'wb') as f:
         print('file opened')
-        #print('receiving data...')
-        data = socket_client.recv(1024)
-        print('data=%s', (data))
-        if not data:
-            f.close()
-            print('file close()')
-        else:
+        while True:
+            print('receiving data...')
+            # Some trbl here !!!
+            data = socket_client.recv(1024)
+            print('data=%b', (data))
+            if not data:
+                break
             # write data to a file
             f.write(data)
-            print('Successfully get the file !')
-            socket_client.close()
-            print('-- Connection closed --')
+
+    f.close()
+    print('Successfully get the file')
+    socket_client.close()
+    print('connection closed')
 
 if __name__=='__main__':
     order = input("Would you like to download file ? (y/n): ")
