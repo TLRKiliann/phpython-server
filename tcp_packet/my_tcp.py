@@ -12,6 +12,14 @@ import struct
 # - restructured code without modifying it
 # - renamed variables
 # - added type hints
+
+"""
+    sudo tcpdump -n -i eth0 -s 100 dst <ip>
+    22:50:21.962026 IP ip_src.20 > ip_dst.666: Flags [FPU], 
+    seq 72, win 8192, urg 0, length 0
+    Flags [FPU] = FIN PUSH URGENT
+"""
+
 def chksum(packet: bytes) -> int:
     if len(packet) % 2 != 0:
         packet += b'\0'
@@ -41,8 +49,8 @@ class TCPPacket:
             '!HHIIBBHHH',
             self.src_port,  # Source Port
             self.dst_port,  # Destination Port
-            0,              # Sequence Number
-            0,              # Acknoledgement Number
+            72,             # Sequence Number
+            200,            # Acknoledgement Number
             5 << 4,         # Data Offset
             self.flags,     # Flags
             8192,           # Window
@@ -59,23 +67,18 @@ class TCPPacket:
         )
 
         checksum = chksum(pseudo_hdr + packet)
-
         packet = packet[:16] + struct.pack('H', checksum) + packet[18:]
-
         return packet
 
 
 if __name__ == '__main__':
-    dst = '192.168.18.1'
+    dst = 'ip_dst'
 
-    pak = TCPPacket(
-        '192.168.18.2',
-        20,
+    pak = TCPPacket('ip_src',
+        1235,
         dst,
-        666,
-        0b000101001  # Merry Christmas!
-    )
+        5575,
+        0b000101001)  # Merry Christmas!
 
     s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
-
     s.sendto(pak.build(), (dst, 0))

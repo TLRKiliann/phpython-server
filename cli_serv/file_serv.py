@@ -9,7 +9,6 @@ TCP_IP = socket.gethostbyname("127.0.0.1")
 TCP_PORT = 5000
 
 
-
 class ClientThread(threading.Thread):
     """
         By convention we use threading.Thread
