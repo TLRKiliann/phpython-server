@@ -20,13 +20,7 @@ while True:
     clientsocket.send(bytes(msg, "utf-8"))
 
     while True:
-        #time.sleep(3)
-        #msg = f"Time is : {date.time()}"
-        data = b"a" #* (1024 * 100000)
-        mv = memoryview(data)
-        #sent = s.send(mv)
-        #mv = mv[sent:]
+        time.sleep(3)
+        msg = f"Time is : {time.time()}"
         msg = f"{len(msg):<{HEADERSIZE}}" + msg
         clientsocket.send(bytes(msg, "utf-8"))
-        sent = clientsocket.send(mv)
-        mv = mv[sent:]
