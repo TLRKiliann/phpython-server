@@ -7,6 +7,14 @@ and some files whose working as server with a proxy.
 - socketserver
 - TCPServer
 - http.server
+- etc ...
+
+# Repositories :
+- ana_request (analyzer)
+- cli_serv (client-server)
+- data_buff (buffer protocol, memory...)
+- php_http_server (as php server)
+- sniff
 
 # Some tricks to understand how it work :
 - To launch server with a listner port :
