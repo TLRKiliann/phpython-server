@@ -21,7 +21,7 @@ __Explanations__="""
        ######      #      ########    #######
 
     - This app show you how to get http
-      packet and return ip src & dst.
+      packet and return ip src & ip dst.
 
                                              ko@l@tr33
 

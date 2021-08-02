@@ -26,10 +26,10 @@ import subprocess
 import procfile 
 
 
-# to open/create a new html file in the write mode
+# To open/create a new html file in the write mode
 f = open( 'fromanah.php', 'w')
   
-# the html code which will go in the file fromanah.php
+# The html code which will go in the file fromanah.php
 html_template = """<?php
 session_start();
 ?>
@@ -78,10 +78,10 @@ session_start();
 </html>
 """
   
-# writing the code into the file
+# Writing the code into the file
 f.write(html_template)
   
-# close the file
+# Close the file
 f.close()
   
 # viewing html or php files
@@ -89,7 +89,7 @@ f.close()
 # codecs.StreamReaderWriter object
 file = codecs.open("fromanah.php", 'r', "utf-8")
 
-# using .read method to view the html 
+# Using read() method to view the html 
 # php code from our object
 print(file.read())
 
