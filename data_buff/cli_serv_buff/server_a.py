@@ -16,7 +16,5 @@ while True:
     
     d = {1 : "Hey", 2 : "Goooo"}
     msg = pickle.dumps(d)
-
     msg = bytes(f'{len(msg):<{HEADERSIZE}}', "utf-8") + msg
-
     clientsocket.send(msg)

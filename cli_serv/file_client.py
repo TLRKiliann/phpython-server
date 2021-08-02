@@ -2,7 +2,7 @@
 
 
 import socket
-import time
+#import time
 
 
 TCP_IP = socket.gethostbyname("127.0.0.1")
@@ -21,15 +21,16 @@ def client_receiver():
         while True:
             print('[+] Receiving data...')
             # Some trbl here !!!
-            data = str(socket_client.recv(1024), "utf-8")
-            print('data=%s', (data))
+            data = str(socket_client.recv(1024))
+            print('[!] data=%s', repr(data))
             if not data:
                 break
             # write data to a file
-            f.write(data)
+            added = str("YEAH !!! very good !!!")
+            f.write(bytes(added, encoding="utf-8"))
             f.close()
-            print('Successfully get the file')
             socket_client.close()
+            print('Successfully get the file')
             print('Connection closed')
 
 if __name__=='__main__':
