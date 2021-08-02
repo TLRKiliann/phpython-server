@@ -13,16 +13,16 @@ def client_receiver():
     # socket.SOCK_STREAM = TCP
     socket_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     socket_client.connect((TCP_IP, TCP_PORT))
-    socket_client.send(b"Hello server !")
+    # socket_client.send(b"Hello server !")
 
     recived_f = 'fileX.txt'
     with open('received_file', 'wb') as f:
-        print('file opened')
+        print('[+] File opened')
         while True:
-            print('receiving data...')
+            print('[+] Receiving data...')
             # Some trbl here !!!
-            data = socket_client.recv(1024)
-            print('data=%b', (data))
+            data = str(socket_client.recv(1024), "utf-8")
+            print('data=%s', (data))
             if not data:
                 break
             # write data to a file
@@ -30,7 +30,7 @@ def client_receiver():
             f.close()
             print('Successfully get the file')
             socket_client.close()
-            print('connection closed')
+            print('Connection closed')
 
 if __name__=='__main__':
     order = input("Would you like to download file ? (y/n): ")

@@ -19,15 +19,16 @@ class ClientThread(threading.Thread):
         self.ip = ip
         self.port = port
         self.socket_server = socket_server
-        print("+ New thread started for " + ip + ":" + (port))
+        print("+ New thread started for " + ip + ":" + str(port))
 
     def run(self):
+        print("Connection from : " + ip + ":" + str(port))
         filename = 'fileX.txt'
         f = open(filename, 'rb')
         l = f.read(1024)
         while (l):
            conn.send(l)
-           print('Sent ',repr(l))
+           print('Sent ', repr(l))
            l = f.read(1024)
         f.close()
         self.socket_server.close()
@@ -57,7 +58,7 @@ while True:
     newthread.start()
     threads.append(newthread)
     # Number of thread
-    i+=1
+    i += 1
     print("+ Thread : ", i)
 
     outgo = input("+ Continue ? (y/n): ")
