@@ -27,11 +27,10 @@ def client_receiver():
                 break
             # write data to a file
             f.write(data)
-
-    f.close()
-    print('Successfully get the file')
-    socket_client.close()
-    print('connection closed')
+            f.close()
+            print('Successfully get the file')
+            socket_client.close()
+            print('connection closed')
 
 if __name__=='__main__':
     order = input("Would you like to download file ? (y/n): ")
