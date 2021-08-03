@@ -1,8 +1,14 @@
 #!/usr/bin/python3
 
-
 import socket
 
+__introcli__="""
+---------------------------------------
+    File Transfert with threading !
+---------------------------------------
+"""
+
+print(__introcli__)
 
 TCP_IP = socket.gethostbyname("127.0.0.1")
 TCP_PORT = 5000
@@ -15,7 +21,7 @@ def client_receiver():
     # socket_client.send(b"Hello server !")
 
     recived_f = 'fileX.txt'
-    with open('received_file', 'wb') as f:
+    with open('file_recv.txt', 'wb') as f:
         print('[+] File opened')
         while True:
             print('[+] Receiving data...')

@@ -1,9 +1,15 @@
 #!/usr/bin/python3
 
-
 import socket
 import threading
 
+__introserv__="""
+---------------------------------------
+    File Transfert with threading !
+---------------------------------------
+"""
+
+print(__introserv__)
 
 TCP_IP = socket.gethostbyname("127.0.0.1")
 TCP_PORT = 5000
@@ -22,7 +28,7 @@ class ClientThread(threading.Thread):
 
     def run(self):
         print("[+] Connection from : " + ip + ":" + str(port))
-        filename = 'fileX.txt'
+        filename = 'file_sent.txt'
         f = open(filename, 'rb')
         l = f.read(1024)
         while (l):
