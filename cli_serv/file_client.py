@@ -18,14 +18,12 @@ def client_receiver():
     # socket.SOCK_STREAM = TCP
     socket_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     socket_client.connect((TCP_IP, TCP_PORT))
-    # socket_client.send(b"Hello server !")
 
     recived_f = 'fileX.txt'
     with open('file_recv.txt', 'wb') as f:
         print('[+] File opened')
         while True:
             print('[+] Receiving data...')
-            # Some trbl here !!!
             data = str(socket_client.recv(1024))
             print('[!] data=%s', repr(data))
             if not data:
@@ -37,6 +35,7 @@ def client_receiver():
             socket_client.close()
             print('[+] Successfully get the file')
             print('[+] Connection closed')
+            print("[!] Use 'cat file_recv.txt' to see data [!]")
             break
 
 if __name__=='__main__':
