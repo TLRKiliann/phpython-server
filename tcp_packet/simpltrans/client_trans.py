@@ -9,7 +9,7 @@ BUFFER_SIZE = 1024
 csFT = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 csFT.connect((socket.gethostname(), 8756))
 
-text_file = 'passphrase.txt'
+text_file = 'trans_b.txt'
 
 fsize = os.path.getsize(text_file)
 csFT.send(str(fsize).encode('utf-8'))

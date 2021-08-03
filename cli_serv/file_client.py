@@ -2,7 +2,6 @@
 
 
 import socket
-#import time
 
 
 TCP_IP = socket.gethostbyname("127.0.0.1")
@@ -30,8 +29,9 @@ def client_receiver():
             f.write(bytes(added, encoding="utf-8"))
             f.close()
             socket_client.close()
-            print('Successfully get the file')
-            print('Connection closed')
+            print('[+] Successfully get the file')
+            print('[+] Connection closed')
+            break
 
 if __name__=='__main__':
     order = input("Would you like to download file ? (y/n): ")

@@ -11,7 +11,7 @@ ssFT.listen(1)
 
 while True:
     (conn, address) = ssFT.accept()
-    text_file = 'fileProj.txt'
+    text_file = 'trans_a.txt'
 with open(text_file, 'wb') as fw:
     msg = ssFT.recv(BUFFER_SIZE)
     fsize = int(msg.decode('utf-8'))
