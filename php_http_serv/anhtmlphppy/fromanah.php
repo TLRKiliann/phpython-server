@@ -1,5 +1,4 @@
 <?php
-// Execute to an other shell => sudo php -S 127.0.0.1:80
 session_start();
 ?>
 <!DOCTYPE html>
@@ -38,8 +37,7 @@ session_start();
             $heure = date("H:i");
             echo '<p>Hour : ' . $heure . '</p>';
             $fp =fopen("ip_registrer.txt", "a");
-            fputs ($fp,  " $ip || $date || $heure 
-");
+            fputs ($fp,  " $ip || $date || $heure ");
             fclose($fp);
             ?>
         </div>

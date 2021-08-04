@@ -30,9 +30,9 @@ def callProcFunc(servphp, url):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     result = sock.connect_ex(('127.0.0.1', 80))
     if result == 0:
-       print("Status of php server : open")
+       print("[+] Status of php server : open")
        # To call hey_bro.py for launching function callMyBrow(url) :
        hey_bro.callMyBrow(url)
     else:
-       print("Status of php server : close")
+       print("[+] Status of php server : close")
        os.system("xfce4-terminal -e 'bash -c \"{}; exec bash\"'".format(servphp))

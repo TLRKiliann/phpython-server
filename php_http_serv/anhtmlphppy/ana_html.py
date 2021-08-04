@@ -9,7 +9,9 @@ __Explain__="""
     with address (localhost)
     
     To run programm, execute :
-    > python3 ana_html.py 
+    > python3 ana_html.py (first terminal)
+    > enter root passwd in new terminal
+    > relaunch python3 ana_html.py (first terminal)
 
 ########################################################
 -------------------------------------------------------
@@ -27,7 +29,7 @@ import procfile
 
 
 # To open/create a new html file in the write mode
-f = open( 'fromanah.php', 'w')
+f = open('fromanah.php', 'w')
   
 # The html code which will go in the file fromanah.php
 html_template = """<?php
