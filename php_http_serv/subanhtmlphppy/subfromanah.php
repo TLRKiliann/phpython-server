@@ -1,12 +1,14 @@
 <?php
-// Execute to an other shell => sudo php -S 127.0.0.1:80
+// Execute to an other shell :
+// (proxyserv) name @ pc-name ~/pathfolder/subanhtmlphppy 
+// └─ $ ▶ sudo php -S 127.0.0.1:80
 session_start();
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="Utf-8" />
-        <link rel="stylesheet" href="subfromanah.css" type="text/css" />
+        <link rel="stylesheet" href="fromanah.css" type="text/css" />
     </head>
     <body>
     <h1>Wellcome to Ana-H site !</h1>
@@ -35,7 +37,7 @@ session_start();
             echo '<p>Date : ' . $date . '</p>';
             $heure = date("H:i");
             echo '<p>Hour : ' . $heure . '</p>';
-            $fp =fopen("subip_registrer.txt", "a");
+            $fp =fopen("ip_registrer.txt", "a");
             fputs ($fp,  " $ip || $date || $heure ");
             fclose($fp);
             ?>
