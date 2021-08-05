@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
+# -*- coding:utf-8 -*-
 
 
 import http.server
@@ -12,36 +12,42 @@ import time
 
 
 host = "127.0.0.1"
-port = 8000
+port = 6059
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
-        #payload = {'key1': 'value1', 'key2': 'value2'}
-        url = "https://meteonews.ch/fr/" #'https://www.myip.com/'
-        rg = requests.get("https://meteonews.ch/fr/") #'https://www.myip.com/')
-        #rg = requests.get('https://www.myip.com/', data=payload)
-        print("Status :", rg.status_code)
+        payload = {'key1': 'value1', 'key2': 'value2'}
+        url = "https://www.myip.com/"
+        #rg = requests.get("https://www.myip.com/")
+        rg = requests.get('https://www.myip.com/', data=payload)
+        print("[+] Status :", rg.status_code)
         print("\n")
-        print(rg.url)
+        print("[+] Requests URL : ", rg.url)
         print("\n")
-        print(rg.requests.headers)
+        rg.headers
+        print("[+] Requests.headers :", rg.headers)
         print("\n")
-        print(rg.encoding)
+        print("[+] Requests encoding :", rg.encoding)
         print("\n")
         rg.content
+        print("[+] Requests content : ")
         print(type(rg.content))
-        #print(rg.content)
-        print(rg.content[0:200])
+        print("[+] Requests content [0:600] : ")
+        print(rg.content[0:600])
         print("\n")
         rg.text
+        print("[+] Requests text (type) : ")
         print(type(rg.text))
-        #print(rg.text)
-        print(rg.text[0:200])
+        print("[+] Requests text [0:400] : ")
+        print(rg.text[0:400])
         print("\n")
         data = {'title':'Pyton Requests','body':'Requests are qwesome','userId':1} 
         rp = requests.post('https://www.myip.com/posts', data, stream = True)
+        print("[+] Requests raw : ")
         print(type(rp.raw))
+        print("[+] Requests raw (type): ")
         print(type(rp.raw.read(30)))
+        print("[+] Requests raw : ")
         print(rp.raw.read(30))
         #print(str(rp.raw.read(30)))
 
@@ -57,7 +63,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("<p> --- GET + Headers-Content-Type : </p>", "utf-8"))
         self.wfile.write(bytes(rg.headers['content-type'], "utf-8"))
         self.wfile.write(bytes("<p> --- Encoding : </p>", "utf-8"))
-        self.wfile.write(bytes(rg.encoding, "utf-8","img/png"))
+        self.wfile.write(bytes(rg.encoding, "utf-8", "img/png"))
         self.wfile.write(bytes("<p> --- Text data : </p>", "utf-8"))
         self.wfile.write(bytes(rg.text, "utf-8"))
         self.wfile.write(bytes("<p> --- Content : </p>", "utf-8"))
