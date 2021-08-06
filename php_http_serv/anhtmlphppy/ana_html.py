@@ -70,7 +70,7 @@ session_start();
             echo '<p>Date : ' . $date . '</p>';
             $heure = date("H:i");
             echo '<p>Hour : ' . $heure . '</p>';
-            $fp =fopen("ip_registrer.txt", "a");
+            $fp =fopen("ip_registrer.log", "a");
             fputs ($fp,  " $ip || $date || $heure \n");
             fclose($fp);
             ?>
