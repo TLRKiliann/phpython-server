@@ -29,5 +29,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
     # or
     received = sock.recv(1024).decode()
 
-print("\n\nSent from Client:     {}".format(data))
-print("Received from Server: {}".format(received))
+
+print("\n\n[+] Sent from Client: {}".format(data))
+print("[+] Received from Server: {}".format(received))
