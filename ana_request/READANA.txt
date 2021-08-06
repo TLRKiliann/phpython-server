@@ -1,0 +1,38 @@
+ana_py2.py
+----------
+"""
+    To open xfce4-terminal (with python) and 
+    display netstat -npte (with bash).
+"""
+
+ana_py3.py
+----------
+"""
+    To get public IP
+"""
+
+anah_target.py
+--------------
+"""
+    To read data from html into shell
+"""
+
+client_arg.py
+-------------
+"""
+    This program run with a server. Start the 
+    server at first and then, launch client_arg.py.
+    Use this cmd to launch this script :
+    $ python3 client_arg.py <ip> <port>
+"""
+
+nmap_target.py
+--------------
+"""
+    Launch prog with : python3 nmap_target.py
+    Enter address : 127.0.0.1 or public_IP
+    You can use : ps f | grep -i "python"
+    for seeing if python process run
+    or your internet interface :
+    sudo iftop -i <eth0, enp3s0 or other (ifconfig)>
+"""
