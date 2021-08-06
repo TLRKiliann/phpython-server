@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 
 """
-    To communicate between client and server
+    This program run with a server. Start the 
+    server at first and then, launch client_arg.py.
+    Use this cmd to launch this script :
+    $ python3 client_arg.py <ip> <port>
 """
 
 import socket
@@ -16,7 +19,6 @@ else:
 
 print("get addr : {}".format(ip))
 print("get port : {}".format(port))
-
 
 # Create socket for server
 socket_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
