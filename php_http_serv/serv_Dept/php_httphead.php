@@ -1,6 +1,6 @@
 <?php
 // sudo php -S 127.0.0.1:6888 php_httphead.php
-// Exec firefox &
+// Run firefox &
 // Enter : 127.0.0.1:6888
 // View page source on your browser;)
 session_start();

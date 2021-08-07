@@ -1,5 +1,8 @@
 <?php
 // sudo php -S 127.0.0.1:6777 netpy.php
+// Run firefox &
+// Enter : 127.0.0.1:6777
+// View page source on your browser;)
 session_start();
 ?>
 
