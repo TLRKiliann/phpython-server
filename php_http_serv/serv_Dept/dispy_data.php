@@ -10,10 +10,10 @@ session_start();
     <head>
         <meta charset="Utf-8" />
         <link rel="stylesheet" href="index.css" type="text/css" />
-        <title>Server 2</title>
+        <title>Server 3 !</title>
     </head>
     <body>
-        <h1>Differents ways to show you how to display output :</h1>
+        <h1>SERVER 3 :</h1>
 
         <h2>vmstat : (system)</h2>
         <?php

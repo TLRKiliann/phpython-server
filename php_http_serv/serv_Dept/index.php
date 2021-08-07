@@ -1,5 +1,5 @@
 <?php
-// Execute to an other shell => sudo php -S 127.0.0.1:6878
+// Execute to an other shell => sudo php -S 127.0.0.1:6688
 session_start();
 ?>
 
@@ -8,15 +8,15 @@ session_start();
     <head>
         <meta charset="Utf-8" />
         <link rel="stylesheet" href="index.css" type="text/css" />
-        <title>Proxy request</title>
+        <title>SERVER 2 !</title>
     </head>
 
     <body>
         <h1>SimpleHTTPServer and php server :</h1>
-        <h2>- 2 server with 2 differents ports -</h2>
-        <h3>server 1 : sudo php -S 127.0.0.1:80</h3>
-        <h3>server 2 : python3 download_server.py 8000</h3>
-        <h3>server 2 : sudo php -S 127.0.0.1:8000 dispy_data.php</h3>
+        <h2>[+] 3 server with 3 differents ports -</h2>
+        <h3>shell 1 : python3 download_server.py 8000</h3>
+        <h3>shell 2 : sudo php -S 127.0.0.1:6688</h3>
+        <h3>shell 3 : sudo php -S 127.0.0.1:6999 dispy_data.php</h3>
         <h4>Results from server 1 :</h4>
             <div class="content">
                 <?php
@@ -71,10 +71,9 @@ session_start();
                     #$output = shell_exec('pwd');
                     #echo "<pre>$output</pre>";
                 }
-                //}
                 //catch (Exception $e)
                 //{
-                  //  echo "Some trouble !!!";
+                //    echo "Some trouble !!!", $e;
                 //}
                 ?>
                 <!--  -->
