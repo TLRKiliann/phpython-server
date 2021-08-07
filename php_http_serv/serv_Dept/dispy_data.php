@@ -1,5 +1,5 @@
 <?php
-// execute to an other shell => php -S 127.0.0.1:8000 dispy_data.php
+// execute to an other shell => sudo php -S 127.0.0.1:8000 dispy_data.php
 // This script show you how to display data from php commands and
 // from python3 commands.
 session_start();
@@ -14,6 +14,16 @@ session_start();
     </head>
     <body>
         <h1>Differents ways to show you how to display output :</h1>
+
+        <h2>vmstat : (system)</h2>
+        <?php
+        echo '<pre>';
+        $las_li = system('vmstat', $r_value);
+        echo '</pre>
+        <hr />Last line of the output: ' . $las_li . '
+        <hr />Return value: ' . $r_value;
+        ?>
+        <br><br/>
 
         <h2>ls -larth : (system)</h2>
         <?php
