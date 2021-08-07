@@ -1,5 +1,5 @@
 <?php
-// php -S 127.0.0.1:8000 netpy.php
+// php -S 127.0.0.1:6777 netpy.php
 session_start();
 ?>
 

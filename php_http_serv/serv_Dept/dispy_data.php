@@ -1,7 +1,7 @@
 <?php
-// execute to an other shell => sudo php -S 127.0.0.1:8000 dispy_data.php
-// This script show you how to display data from php commands and
-// from python3 commands.
+// execute to an other shell => sudo php -S 127.0.0.1:6999 dispy_data.php
+// This script show you how to display data from php commands and with
+// commands python3.
 session_start();
 ?>
 

@@ -6,8 +6,8 @@
     To upload file index.php,
     launch index.php at first.
     Use this command :
-    sudo php -S 127.0.0.1:80 
-    and then run python3 server.py
+    sudo php -S 127.0.0.1:8000
+    and then run python3 download_serv.py
 """
 
 import http.server # Our http server handler for http requests
