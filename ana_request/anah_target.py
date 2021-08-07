@@ -1,7 +1,16 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
 
+__OpenBrowser__="""
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
+      This script launch browser 
+            with addr (LAN)
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+"""
+
+import os
 import http.server
 from http.server import BaseHTTPRequestHandler
 from http.server import HTTPServer
@@ -10,9 +19,12 @@ import requests_raw
 import binascii
 import time
 
+print(__OpenBrowser__)
 
-host = "127.0.0.1"
 port = 6059
+host = "127.0.0.1"
+run_fire = host +":"+ str(port)
+os.system("xfce4-terminal -e 'bash -c \"firefox {}; exec bash\"'".format(run_fire))
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
