@@ -16,7 +16,7 @@ session_start();
         <h2>- 2 server with 2 differents ports -</h2>
         <h3>server 1 : sudo php -S 127.0.0.1:80</h3>
         <h3>server 2 : python3 download_server.py 8000</h3>
-        <h3>server 2 : php -S 127.0.0.1:8000 dispy_data.php</h3>
+        <h3>server 2 : sudo php -S 127.0.0.1:8000 dispy_data.php</h3>
         <h4>Results from server 1 :</h4>
             <div class="content">
                 <?php
