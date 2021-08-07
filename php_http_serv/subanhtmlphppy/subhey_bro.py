@@ -54,7 +54,7 @@ auto-option-for-gnu-grep-mean'
 Since grep is a GNU program another option might be having a look at 
 the source code.
 
-Internally grep tests the static int color_option for either 0,1 or 2.
+Internally grep tests the static int color_option for either 0, 1 or 2.
 
     0 never use colorized output
     1 always use colors

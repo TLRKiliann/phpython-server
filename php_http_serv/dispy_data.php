@@ -10,7 +10,7 @@ session_start();
     <head>
         <meta charset="Utf-8" />
         <link rel="stylesheet" href="index.css" type="text/css" />
-        <title>Proxy display</title>
+        <title>Server 2</title>
     </head>
     <body>
         <h1>Differents ways to show you how to display output :</h1>

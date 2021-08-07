@@ -15,7 +15,8 @@ session_start();
         <h1>SimpleHTTPServer and php server :</h1>
         <h2>- 2 server with 2 differents ports -</h2>
         <h3>server 1 : sudo php -S 127.0.0.1:80</h3>
-        <h3>server 2 : python3 server.py 8000</h3>
+        <h3>server 2 : python3 download_server.py 8000</h3>
+        <h3>server 2 : php -S 127.0.0.1:8000 dispy_data.php</h3>
         <h4>Results from server 1 :</h4>
             <div class="content">
                 <?php
@@ -42,7 +43,7 @@ session_start();
                 echo '<p>Date : ' . $date . '</p>';
                 $heure = date("H:i");
                 echo '<p>Hour : ' . $heure . '</p>';
-                $fp =fopen("ip_registrer.txt", "a");
+                $fp =fopen("ip_rec.txt", "a");
                 fputs ($fp,  " $ip || $date || $heure\n ");
                 fclose($fp);
                 ?>
