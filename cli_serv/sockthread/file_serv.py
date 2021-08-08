@@ -33,7 +33,7 @@ class ClientThread(threading.Thread):
         l = f.read(1024)
         while (l):
            conn.send(l)
-           print('[+] Sent ', repr(l))
+           print("[!] Sent ", repr(l))
            l = f.read(1024)
         f.close()
         self.socket_server.close()
@@ -51,13 +51,13 @@ i = 0
 
 while True:
     tcpsock.listen(5)
-    print("[+] Waiting for incoming connections...")
+    print("[.] Waiting for incoming connections...")
     try:
         (conn, (ip, port)) = tcpsock.accept()
     except error.socket as msg:
-        print("[+] Socket ERROR %s!" % msg)
+        print("[!] Socket ERROR %s!" % msg)
     except TypeError as msg_ret:
-        print("[+] Type ERROR %s!" % msg_ret)
+        print("[!] Type ERROR %s!" % msg_ret)
     print('[+] Got connection from ', (ip, port))
     newthread = ClientThread(ip, port, conn)
     newthread.start()
@@ -66,7 +66,7 @@ while True:
     i += 1
     print("[+] Thread : ", i)
 
-    outgo = input("[+] Continue ? (y/n): ")
+    outgo = input("[?] Continue ? (y/n): ")
     if outgo == "n":
         break
     else:
@@ -74,6 +74,6 @@ while True:
 
 for t in threads:
     t.join()
-    print("[?] is t(=thread) alive [?] : {}".format(t.is_alive()))
+    print("[?] Ss t(=thread) alive [?] : {}".format(t.is_alive()))
     print("[+] Printable_threads : ", threads[:])
-    print("[+] if Thread-1, stopped... that's good !")
+    print("[+] If Thread-1, stopped... that's good !")

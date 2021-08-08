@@ -21,7 +21,7 @@ def client_receiver():
 
     recived_f = 'fileX.txt'
     with open('file_recv.txt', 'wb') as f:
-        print('[+] File opened')
+        print('[+] File opened...')
         while True:
             print('[+] Receiving data...')
             data = str(socket_client.recv(1024))
@@ -39,7 +39,7 @@ def client_receiver():
             break
 
 if __name__=='__main__':
-    order = input("Would you like to download file ? (y/n): ")
+    order = input("[?] Would you like to download file ? (y/n): ")
     if order == 'y':
         client_receiver()
     else:
