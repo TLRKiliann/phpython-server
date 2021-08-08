@@ -1,27 +1,45 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
 
-import socket
 
-BUFFER_SIZE = 1024
+__TOSERV__="""
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-ssFT = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-ssFT.bind((socket.gethostname(), 8756))
-ssFT.listen(1)
+    Run client_trans.py in an other shell !
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+"""
+
+
+import socket                   # Import socket module
+import os
+
+
+print(__TOSERV__)
+
+port = 60000                    # Reserve a port for your service.
+s = socket.socket()             # Create a socket object
+host = socket.gethostname()     # Get local machine name
+s.bind((host, port))            # Bind to the port
+s.listen(5)                     # Now wait for client connection.
+
+print("[+] Server waiting connection...")
 
 while True:
-    (conn, address) = ssFT.accept()
-    text_file = 'trans_a.txt'
-with open(text_file, 'wb') as fw:
-    msg = ssFT.recv(BUFFER_SIZE)
-    fsize = int(msg.decode('utf-8'))
-    rsize = 0
+    clientsocket, addr = s.accept()     # Establish connection with client.
+    print("[+] Got connection from", addr)
+    data = clientsocket.recv(1024)
+    print("[!] Server received :", bytes(data))
 
-    while True:
-        data = ssFT.recv(BUFFER_SIZE)
-        rsize = rsize + len(data)
-        fw.write(data)
-        if rsize >= fsize:
-            print('Breaking from file write')
-            break
+    filename = 'mytext'
+    f = open(filename,'rb')
+    l = f.read(1024)
+    while (l):
+       clientsocket.send(l)
+       print('Sent ',repr(l))
+       l = f.read(1024)
+    f.close()
 
+    print('[+] Done sending')
+    clientsocket.send(b"Thank you for connecting")
+    clientsocket.close()

@@ -1,21 +1,45 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
 
-import socket
-import os
 
-BUFFER_SIZE = 1024
+__TOUSE__="""
+------------------------------------------
 
-csFT = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-csFT.connect((socket.gethostname(), 8756))
+    Client receive msg from server !
 
-text_file = 'trans_b.txt'
+------------------------------------------
+"""
 
-fsize = os.path.getsize(text_file)
-csFT.send(str(fsize).encode('utf-8'))
 
-with open(text_file, 'rb') as fs:
-    data = fs.read(BUFFER_SIZE)
-    while data:
-        csFT.send(data)
-        data = fs.read(BUFFER_SIZE)
+import socket                   # Import socket module
+
+
+print(__TOUSE__)
+
+s = socket.socket()             # Create a socket object
+host = socket.gethostname()     # Get local machine name
+port = 60000                    # Reserve a port for your service.
+
+s.connect((host, port))
+s.send(b"Hello server!")
+
+with open('received_file', 'wb') as f:
+    print("[+] File opened...")
+    while True:
+        data = s.recv(1024)
+        if not data :
+            print("[+] Finish !!!")
+            break
+        else:
+            print("[+] Receiving data...")
+            print("[!] data=%s", bytes(data))
+        #if not data:
+        #break
+        # write data to a file
+        f.write(data)
+
+f.close()
+print("[+] Successfully get file !")
+s.close()
+print("[!] Connection closed !")
+
