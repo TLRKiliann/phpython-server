@@ -23,12 +23,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
     # Send msg to server with bytes() or encode()
     # display result with : b'' on server
     # sock.sendall(bytes(data + "\n", "utf-8"))
-    sock.sendall(data.encode())
+    sock.sendall(bytes(data.encode("utf-8")))
     # Receive data from the server and shut down
     #received = str(sock.recv(1024), "utf-8")
     # or
-    received = sock.recv(1024).decode()
+    received = sock.recv(1024)
 
 
-print("\n\n[+] Sent from Client: {}".format(data))
-print("[+] Received from Server: {}".format(received))
+print("\n\n[+] Sent from Client :", bytes(data.encode("utf-8")))
+print("[+] Received from Server :", bytes(received))
