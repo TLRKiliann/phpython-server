@@ -11,14 +11,14 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 """
 
 
-import socket                   # Import socket module
+import socket
 import os
 
 
 print(__TOSERV__)
 
-port = 60000                    # Reserve a port for your service.
-s = socket.socket()             # Create a socket object
+port = 60000
+s = socket.socket()
 host = socket.gethostname()     # Get local machine name
 s.bind((host, port))            # Bind to the port
 s.listen(5)                     # Now wait for client connection.
@@ -42,4 +42,5 @@ while True:
 
     print('[+] Done sending')
     clientsocket.send(b"Thank you for connecting")
+    clientsocket.shutdown(60)
     clientsocket.close()
