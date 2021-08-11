@@ -42,5 +42,4 @@ while True:
 
     print('[+] Done sending')
     clientsocket.send(b"Thank you for connecting")
-    clientsocket.shutdown(60)
     clientsocket.close()
