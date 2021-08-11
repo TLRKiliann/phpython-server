@@ -4,13 +4,15 @@ import socket
 import sys
 
 """
-    class socketserver.TCPServer(server_address, RequestHandlerClass, bind_and_activate=True)
-    This uses the Internet TCP protocol, which provides for continuous streams of data between 
-    the client and server. If bind_and_activate is true, the constructor automatically attempts 
-    to invoke server_bind() and server_activate(). The other parameters are passed to the 
-    BaseServer base class.
-    Run at first server_socket.py
-    Run prog with this cmd : python3 client_socket.py "something to write"
+    class socketserver.TCPServer(server_address, RequestHandlerClass,
+    bind_and_activate=True)
+    This uses the Internet TCP protocol, which provides for continuous 
+    streams of data between the client and server. If bind_and_activate 
+    is true, the constructor automatically attempts to invoke 
+    server_bind() and server_activate(). The other parameters are passed 
+    to the BaseServer base class.
+    1) Run at first server_socket.py
+    2) Run prog with this cmd : python3 client_socket.py "something to write"
 """
 
 HOST, PORT = "localhost", 9999

@@ -3,8 +3,8 @@
 import socketserver
 
 """
-    Run prog with this cmd : python3 server_socket.py
-    Run client_socket like this : python3 client_socket "write something"
+    1) Run prog with this cmd : python3 server_socket.py
+    2) Run client_socket like this : python3 client_socket "write something"
 """
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
