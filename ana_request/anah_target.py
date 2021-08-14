@@ -86,7 +86,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("------------- <br>", "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
 
-if __name__ == "__main__":        
+if __name__ == "__main__":
     webServer = HTTPServer((host, port), MyServer)
     print("Server started http://%s:%s" % (host, port))
 
