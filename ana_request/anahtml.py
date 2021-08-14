@@ -6,8 +6,9 @@ __HTMLCOPY__="""
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
       This script retrive html code
-      from a site to copy all data into 
-      file_html.txt 
+      from a site to copy all data into
+      file_html.txt
+      Easy to get that with *http.server*
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 """
@@ -32,8 +33,9 @@ os.system("xfce4-terminal -e 'bash -c \"firefox {}; exec bash\"'".format(run_fir
 class ServerHtml(BaseHTTPRequestHandler):
     def do_GET(self):
         payload = {'key1': 'value1', 'key2': 'value2'}
-        url = "https://www.linusakesson.net/"
-        rg = requests.get('https://www.linusakesson.net/', data=payload)
+        ask_addr = input("Enter address plz : https://www.")
+        url = "https://www." + ask_addr
+        rg = requests.get(url, data=payload)
         print("[+] Status :", rg.status_code)
         print("\n")
         print("[+] Requests URL : ", rg.url)
@@ -47,12 +49,12 @@ class ServerHtml(BaseHTTPRequestHandler):
         self.wfile.write(bytes("<p> --- Content : </p>", "utf-8"))
         self.wfile.write(bytes(rg.content))
         with open("file_html.txt", 'w+b') as fileh:
-        	fileh.write(bytes(rg.content))
+            fileh.write(bytes(rg.content))
 
 if __name__ == "__main__":
     webServer = HTTPServer((host, port), ServerHtml)
     print("Server started http://%s:%s" % (host, port))
-
+    
     try:
         webServer.serve_forever()
     except KeyboardInterrupt:
