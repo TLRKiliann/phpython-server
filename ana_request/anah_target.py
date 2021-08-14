@@ -29,9 +29,8 @@ os.system("xfce4-terminal -e 'bash -c \"firefox {}; exec bash\"'".format(run_fir
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         payload = {'key1': 'value1', 'key2': 'value2'}
-        url = "https://www.myip.com/"
-        #rg = requests.get("https://www.myip.com/")
-        rg = requests.get('https://www.myip.com/', data=payload)
+        url = "https://www.linusakesson.net/"
+        rg = requests.get('https://www.linusakesson.net/', data=payload)
         print("[+] Status :", rg.status_code)
         print("\n")
         print("[+] Requests URL : ", rg.url)

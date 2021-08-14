@@ -3,12 +3,13 @@
 
 
 __HTMLCOPY__="""
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-      This script html code
-      from the site to html_copy.txt 
+      This script retrive html code
+      from a site to copy all data into 
+      file_html.txt 
 
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 """
 
 
@@ -28,12 +29,11 @@ host = "127.0.0.1"
 run_fire = host +":"+ str(port)
 os.system("xfce4-terminal -e 'bash -c \"firefox {}; exec bash\"'".format(run_fire))
 
-class RetrieverHtml(BaseHTTPRequestHandler):
+class ServerHtml(BaseHTTPRequestHandler):
     def do_GET(self):
         payload = {'key1': 'value1', 'key2': 'value2'}
-        url = "https://www.myip.com/"
-        #rg = requests.get("https://www.myip.com/")
-        rg = requests.get('https://www.myip.com/', data=payload)
+        url = "https://www.linusakesson.net/"
+        rg = requests.get('https://www.linusakesson.net/', data=payload)
         print("[+] Status :", rg.status_code)
         print("\n")
         print("[+] Requests URL : ", rg.url)
@@ -46,9 +46,11 @@ class RetrieverHtml(BaseHTTPRequestHandler):
         print("\n")
         self.wfile.write(bytes("<p> --- Content : </p>", "utf-8"))
         self.wfile.write(bytes(rg.content))
+        with open("file_html.txt", 'w+b') as fileh:
+        	fileh.write(bytes(rg.content))
 
 if __name__ == "__main__":
-    webServer = HTTPServer((host, port), RetrieverHtml)
+    webServer = HTTPServer((host, port), ServerHtml)
     print("Server started http://%s:%s" % (host, port))
 
     try:
