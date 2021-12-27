@@ -1,9 +1,11 @@
-# Python-Shell
+# PhPyton-Server 
 
-## Python + PHP(server) & TERMINAL
+## PHP-Server with Python & TERMINAL
 
-Demo to identificate some elements of http headers,
-TCP/IP packets. And to scrap data from an external network.
+* Demo to identificate some elements of http headers,
+TCP/IP packets.
+* How to scrap data from an external network.
+* And how to catch public IP when client connects to server.
 
 ### Many libraries and modules :
 - SimpleHTTPRequestHandler
