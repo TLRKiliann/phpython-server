@@ -1,4 +1,4 @@
-#!/home/koala/Documents/python/pypro/my_simplhttp/proxyserv/bin/python
+#!/home/koala/Documents/python/pypro/phpythonserv/phpython-server/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
