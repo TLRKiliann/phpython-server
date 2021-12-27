@@ -1,5 +1,7 @@
-# CLIENT-SERVER 
-## With PHP Python & TERMINAL
+# Python-Shell
+
+## Python + PHP(server) & TERMINAL
+
 Demo to identificate some elements of http headers,
 TCP/IP packets. And to scrap data from an external network.
 
