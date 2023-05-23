@@ -10,7 +10,7 @@ mccabe==0.6.1
 nmap==0.0.1
 pylint==2.8.2
 python-nmap==0.6.4
-requests==2.25.1
+requests==2.31.0
 requests-raw==0.2.1
 toml==0.10.2
 typed-ast==1.4.3
