@@ -8,7 +8,7 @@ isort==5.8.0
 lazy-object-proxy==1.6.0
 mccabe==0.6.1
 nmap==0.0.1
-pylint==2.8.2
+pylint==4.0.9
 python-nmap==0.6.4
 requests==2.33.0
 requests-raw==0.2.1
